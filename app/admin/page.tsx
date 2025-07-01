@@ -45,19 +45,19 @@ export default async function AdminPage() {
   const minors = rsvps.filter((r) => r.is_minor).length
 
   return (
-    <div className="min-h-screen bg-[#f9f7f5] p-8">
+    <div className="min-h-screen bg-light-blue p-8">
       <div className="max-w-7xl mx-auto">
         {/* header */}
         <div className="flex justify-between items-center mb-8">
           <div>
-            <h1 className="text-5xl font-handwritten text-[#9b8579] mb-2">Panel de Administración</h1>
-            <p className="text-[#6d5c50]">Confirmaciones para el casamiento de Juanca &amp; Nuria</p>
+            <h1 className="text-5xl font-handwritten text-ocean-blue mb-2">Panel de Administración</h1>
+            <p className="text-soft-gray">Confirmaciones para el casamiento de Juanca &amp; Nuria</p>
           </div>
           <div className="flex items-center gap-4">
             <ExportButton rsvps={rsvps} />
             <form action={logoutAdmin}>
-              <Button variant="outline" type="submit" className="flex items-center gap-2 bg-transparent">
-                <LogOut className="h-4 w-4" /> Salir
+              <Button variant="outline" type="submit" className="flex items-center gap-2 bg-transparent border-ocean-blue text-ocean-blue hover:bg-ocean-blue hover:text-white">
+                <LogOut className="h-5 w-5" /> Salir
               </Button>
             </form>
           </div>
@@ -74,10 +74,10 @@ export default async function AdminPage() {
             <Card key={label}>
               <CardHeader className="flex items-center justify-between pb-2">
                 <CardTitle className="text-sm font-medium">{label}</CardTitle>
-                <Icon className="h-4 w-4 text-[#9b8579]" />
+                <Icon className="h-6 w-6 text-ocean-blue" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-[#9b8579]">{value}</div>
+                <div className="text-2xl font-bold text-ocean-blue">{value}</div>
               </CardContent>
             </Card>
           ))}
@@ -86,11 +86,11 @@ export default async function AdminPage() {
         {/* table */}
         <Card>
           <CardHeader>
-            <CardTitle className="text-2xl font-handwritten text-[#9b8579]">Confirmaciones Recibidas</CardTitle>
+            <CardTitle className="text-2xl font-handwritten text-ocean-blue">Confirmaciones Recibidas</CardTitle>
           </CardHeader>
           <CardContent>
             {rsvps.length === 0 ? (
-              <p className="text-center text-[#6d5c50] py-8">Aún no hay confirmaciones.</p>
+              <p className="text-center text-soft-gray py-8">Aún no hay confirmaciones.</p>
             ) : (
               <div className="overflow-x-auto">
                 <table className="w-full">
@@ -107,7 +107,7 @@ export default async function AdminPage() {
                         "Fecha",
                         "Acciones",
                       ].map((h) => (
-                        <th key={h} className="p-2 text-left font-medium text-[#9b8579]">
+                        <th key={h} className="p-2 text-left font-medium text-ocean-blue">
                           {h}
                         </th>
                       ))}

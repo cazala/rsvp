@@ -42,17 +42,17 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#f9f7f5] flex items-center justify-center p-4">
+    <div className="min-h-screen bg-light-blue flex items-center justify-center p-4">
       <Card className="w-full max-w-md">
         <CardHeader>
-          <CardTitle className="text-3xl font-handwritten text-[#9b8579]">Panel de Administración</CardTitle>
-          <CardDescription>Ingresá la contraseña para acceder</CardDescription>
+          <CardTitle className="text-3xl font-handwritten text-ocean-blue">Panel de Administración</CardTitle>
+          <CardDescription className="text-soft-gray">Ingresá la contraseña para acceder</CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit}>
           <CardContent>
             <div className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="password">Contraseña</Label>
+                <Label htmlFor="password" className="text-soft-gray">Contraseña</Label>
                 <Input
                   id="password"
                   type="password"
@@ -60,14 +60,14 @@ export default function AdminLoginPage() {
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Ingresá la contraseña"
                   required
-                  className="border-[#d4c1b7] focus-visible:ring-[#9b8579]"
+                  className="border-2 border-ocean-blue/30 focus-visible:ring-ocean-blue focus-visible:border-ocean-blue font-light rounded-xl"
                 />
               </div>
               {error && <p className="text-sm text-red-500">{error}</p>}
             </div>
           </CardContent>
           <CardFooter>
-            <Button type="submit" className="w-full bg-[#9b8579] hover:bg-[#8a7668]" disabled={isLoading}>
+            <Button type="submit" className="w-full bg-ocean-blue hover:bg-sky-blue text-white font-light tracking-wide rounded-full" disabled={isLoading}>
               {isLoading ? "Verificando..." : "Ingresar"}
             </Button>
           </CardFooter>

@@ -1,17 +1,23 @@
-"use client"
+"use client";
 
-import { MapPin, Navigation } from "lucide-react"
+import { Navigation } from "lucide-react";
 
 export default function Venue() {
   return (
     <section className="py-16 relative">
       <div className="bg-white/80 backdrop-blur-sm border-2 border-ocean-blue rounded-3xl p-8 md:p-12">
         <div className="text-center mb-10">
-          <p className="text-sm text-ocean-blue font-light tracking-[0.2em] uppercase mb-2">Venue</p>
-          <h2 className="text-3xl md:text-4xl font-handwritten text-ocean-blue mb-4">Estancia La Lupita</h2>
-          <p className="text-lg text-soft-gray font-light mb-6">Del Viso, Buenos Aires</p>
+          <p className="text-sm text-ocean-blue font-light tracking-[0.2em] uppercase mb-2">
+            Venue
+          </p>
+          <h2 className="text-3xl md:text-4xl font-handwritten text-ocean-blue mb-4">
+            Estancia La Lupita
+          </h2>
+          <p className="text-lg text-soft-gray font-light mb-6">
+            Del Viso, Buenos Aires
+          </p>
 
-          <a
+          {/* <a
             href="https://maps.app.goo.gl/wdKEnfEndLM1GVc89"
             target="_blank"
             rel="noopener noreferrer"
@@ -19,7 +25,7 @@ export default function Venue() {
           >
             <MapPin className="mr-2 h-4 w-4" />
             Ver Ubicación
-          </a>
+          </a> */}
         </div>
 
         <div className="aspect-video w-full mb-6 overflow-hidden rounded-2xl border-2 border-ocean-blue">
@@ -37,21 +43,31 @@ export default function Venue() {
         </div>
 
         <div className="space-y-4 text-center">
-          <h3 className="text-xl font-handwritten text-ocean-blue">Cómo llegar</h3>
+          <h3 className="text-xl font-handwritten text-ocean-blue">
+            Cómo llegar
+          </h3>
           <p className="text-[#6d5c50] font-light leading-relaxed max-w-2xl mx-auto mb-4">
-            Estancia La Lupita está ubicada en Gral. Viamonte 2298, B1669 Del Viso, Provincia de Buenos Aires,
-            Argentina. El lugar se encuentra aproximadamente a 45 minutos del centro de Buenos Aires.
+            Estancia La Lupita está ubicada en Gral. Viamonte 2298, B1669 Del
+            Viso, Provincia de Buenos Aires, Argentina. El lugar se encuentra
+            aproximadamente a 45 minutos del centro de Buenos Aires.
           </p>
 
+          <h3 className="text-xl font-handwritten text-ocean-blue">Traslado</h3>
           <p className="text-[#6d5c50] font-light leading-relaxed max-w-2xl mx-auto mb-4">
-            Va a haber un traslado desde Capital, podes indicar en el formulario de confirmacion si querés usar el servicio.
+            Va a haber un traslado desde Capital, podes indicar en el formulario
+            de confirmacion si querés usar el servicio.
           </p>
 
+          <h3 className="text-xl font-handwritten text-ocean-blue">
+            Voy en auto
+          </h3>
           <p className="text-[#6d5c50] font-light leading-relaxed max-w-2xl mx-auto">
-            Si vas en auto, lo más directo es tomar Panamericana ramal Pilar y bajarse en Chile. El GPS capaz te diga de
-            bajar antes, porque es más corto en distancia, pero te hace atravesar todo Del Viso. Es mejor seguir un poco
-            más, bajarse de Panamericana por Chile y llegas directo. Acá tenés un link con las indicaciones de cómo
-            llegar en auto.
+            Si vas en auto, lo más directo es tomar Panamericana ramal Pilar y
+            bajarse en Chile. El GPS capaz te diga de bajar antes, porque es más
+            corto en distancia, pero te hace atravesar todo Del Viso. Es mejor
+            seguir un poco más, bajarse de Panamericana por Chile y llegas
+            directo. Acá tenés un link con las indicaciones de cómo llegar en
+            auto.
           </p>
 
           <div className="pt-4">
@@ -59,7 +75,7 @@ export default function Venue() {
               href="https://maps.app.goo.gl/r6qtgTfT874Kxta78"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-2 border-2 border-ocean-blue text-ocean-blue hover:bg-ocean-blue hover:text-white transition-colors font-light text-sm tracking-wide rounded-full"
+              className="inline-flex items-center px-8 py-3 border-2 border-ocean-blue text-ocean-blue hover:bg-ocean-blue hover:text-white transition-colors font-light tracking-wide rounded-full"
             >
               <Navigation className="mr-2 h-4 w-4" />
               Obtener Indicaciones
@@ -68,5 +84,5 @@ export default function Venue() {
         </div>
       </div>
     </section>
-  )
+  );
 }
