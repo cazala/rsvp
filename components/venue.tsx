@@ -44,30 +44,33 @@ export default function Venue() {
 
         <div className="space-y-4 text-center">
           <h3 className="text-xl font-handwritten text-ocean-blue">
-            Cómo llegar
+            Ubicación
           </h3>
           <p className="text-[#6d5c50] font-light leading-relaxed max-w-2xl mx-auto mb-4">
-            Estancia La Lupita está ubicada en Gral. Viamonte 2298, B1669 Del
-            Viso, Provincia de Buenos Aires, Argentina. El lugar se encuentra
-            aproximadamente a 45 minutos del centro de Buenos Aires.
+            Estancia La Lupita está ubicada en{" "}
+            <b className="font-bold">Viamonte 2298, Del Viso</b>. Es a unos
+            30-45 minutos de Capital.
           </p>
 
           <h3 className="text-xl font-handwritten text-ocean-blue">Traslado</h3>
           <p className="text-[#6d5c50] font-light leading-relaxed max-w-2xl mx-auto mb-4">
-            Va a haber un traslado desde Capital, podes indicar en el formulario
-            de confirmacion si querés usar el servicio.
+            Va a haber un traslado saliendo desde{" "}
+            <b className="font-bold">Plaza Italia</b>, podes indicar en el
+            formulario de confirmacion si querés usar el servicio.
           </p>
 
           <h3 className="text-xl font-handwritten text-ocean-blue">
             Voy en auto
           </h3>
           <p className="text-[#6d5c50] font-light leading-relaxed max-w-2xl mx-auto">
-            Si vas en auto, lo más directo es tomar Panamericana ramal Pilar y
-            bajarse en Chile. El GPS capaz te diga de bajar antes, porque es más
-            corto en distancia, pero te hace atravesar todo Del Viso. Es mejor
-            seguir un poco más, bajarse de Panamericana por Chile y llegas
-            directo. Acá tenés un link con las indicaciones de cómo llegar en
-            auto.
+            Si vas en auto, lo más directo es tomar{" "}
+            <b className="font-bold">
+              Panamericana ramal Pilar y bajarse en Chile
+            </b>
+            . El GPS capaz te diga de bajar antes, porque es más corto en
+            distancia, pero te hace atravesar todo Del Viso. Es mejor seguir un
+            poco más, bajarse de Panamericana por Chile y llegas directo. Acá
+            tenés un link con las indicaciones de cómo llegar en auto.
           </p>
 
           <div className="pt-4">

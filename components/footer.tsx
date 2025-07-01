@@ -1,17 +1,17 @@
-import { WEDDING_CONFIG, getFormattedWeddingDate } from "@/lib/config"
+import { WEDDING_CONFIG, getFormattedWeddingDate } from "@/lib/config";
 
 export default function Footer() {
-  const formattedDate = getFormattedWeddingDate()
+  const formattedDate = getFormattedWeddingDate();
 
   return (
     <footer className="py-16 text-center relative">
       <div className="bg-white/80 backdrop-blur-sm border-2 border-ocean-blue rounded-3xl p-8 max-w-lg mx-auto">
         <div className="w-16 h-px bg-ocean-blue mx-auto mb-6"></div>
-        <p className="text-soft-gray font-light mb-2">¡Esperamos celebrar con vos!</p>
         <p className="text-sm text-soft-gray font-light tracking-wide">
-          {WEDDING_CONFIG.couple.name1} & {WEDDING_CONFIG.couple.name2} • {formattedDate}
+          {WEDDING_CONFIG.couple.name1} & {WEDDING_CONFIG.couple.name2} •{" "}
+          {formattedDate}
         </p>
       </div>
     </footer>
-  )
+  );
 }

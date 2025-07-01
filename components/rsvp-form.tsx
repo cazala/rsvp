@@ -44,9 +44,9 @@ export default function RsvpForm() {
               setMessage("");
               setIsMinor(false);
             }}
-            className="bg-ocean-blue hover:bg-sky-blue text-white font-light tracking-wide rounded-full"
+            className="bg-ocean-blue hover:bg-sky-blue text-white font-light tracking-wide rounded-full cursor-pointer"
           >
-            Enviar Otra Respuesta
+            Confirmar Otra Asistencia
           </Button>
         </div>
       </section>

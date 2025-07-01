@@ -348,3 +348,9 @@
 .hover\:text-white:hover {
   color: white !important;
 }
+
+/* Add cursor pointer to checkbox and radio buttons */
+[data-slot="checkbox"], 
+[data-slot="radio-group-item"] {
+  cursor: pointer;
+}
