@@ -10,8 +10,8 @@ export default function Dresscode() {
         </h2>
 
         <p className="text-soft-gray font-light leading-relaxed text-sm">
-          Vestimenta elegante pero cómoda. La recepcion es afuera en piso de
-          pasto asi que ojo con los tacos.
+          Vestimenta elegante pero cómoda. La recepcion es afuera sobre cesped
+          asi que ojo con los tacos.
         </p>
       </div>
     </section>
