@@ -27,14 +27,13 @@ export default function DeleteRsvpButton({ id, name }: DeleteRsvpButtonProps) {
 
   if (showConfirm) {
     return (
-      <div className="flex items-center space-x-2">
-        <span className="text-xs text-red-600">Vuela??</span>
+      <div className="flex items-center space-x-1">
         <Button
           size="sm"
           variant="destructive"
           onClick={handleDelete}
           disabled={isPending}
-          className="h-6 px-2 text-xs"
+          className="h-6 px-2 text-xs cursor-pointer"
         >
           {isPending ? "..." : "Sí"}
         </Button>
@@ -43,7 +42,7 @@ export default function DeleteRsvpButton({ id, name }: DeleteRsvpButtonProps) {
           variant="outline"
           onClick={() => setShowConfirm(false)}
           disabled={isPending}
-          className="h-6 px-2 text-xs"
+          className="h-6 px-2 text-xs cursor-pointer"
         >
           No
         </Button>

@@ -40,7 +40,8 @@ export async function verifyAdminPassword(password: string) {
     console.log("Session encrypted, setting cookie...")
 
     // Set the session cookie
-    cookies().set("admin_session", encryptedSession, {
+    const cookieStore = await cookies()
+    cookieStore.set("admin_session", encryptedSession, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
@@ -67,7 +68,8 @@ export async function checkAdminSession() {
     console.log("Checking admin session...")
 
     // Get the session cookie
-    const sessionCookie = cookies().get("admin_session")?.value
+    const cookieStore = await cookies()
+    const sessionCookie = cookieStore.get("admin_session")?.value
 
     if (!sessionCookie) {
       console.log("No session cookie found")
@@ -94,6 +96,7 @@ export async function checkAdminSession() {
 }
 
 export async function logoutAdmin() {
-  cookies().delete("admin_session")
+  const cookieStore = await cookies()
+  cookieStore.delete("admin_session")
   redirect("/admin/login")
 }

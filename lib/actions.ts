@@ -33,7 +33,7 @@ export async function submitRsvp(formData: FormData) {
     const supabase = getSupabaseAdmin();
 
     // Create a new supabase client for server-side operations
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from("rsvp_responses")
       .insert({
         name: name.trim(),
@@ -85,6 +85,12 @@ export async function deleteRsvp(id: number) {
     }
 
     const supabase = getSupabase();
+    if (!supabase) {
+      return {
+        success: false,
+        message: "Error de configuración de la base de datos.",
+      };
+    }
 
     const { error } = await supabase
       .from("rsvp_responses")

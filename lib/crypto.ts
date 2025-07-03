@@ -36,7 +36,7 @@ export async function encrypt(text: string): Promise<string> {
 
     // Return IV + encrypted data
     return iv.toString("hex") + ":" + encrypted
-  } catch (error) {
+  } catch {
     // Fallback to simple encoding if crypto is not available
     console.warn("Crypto module not available, using simple encoding")
     return simpleEncrypt(text)
@@ -68,7 +68,7 @@ export async function decrypt(encryptedText: string): Promise<string> {
       // Fallback to simple decoding
       return simpleDecrypt(encryptedText)
     }
-  } catch (error) {
+  } catch {
     // Fallback to simple decoding if crypto fails
     console.warn("Crypto decryption failed, trying simple decoding")
     return simpleDecrypt(encryptedText)
