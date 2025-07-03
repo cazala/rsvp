@@ -160,7 +160,7 @@ export function BackgroundIllustrations() {
       </div>
 
       {/* Flowers */}
-      <div className="absolute left-20 mr-16 opacity-25 w-78 h-78 top-850 invisible md:visible">
+      <div className="absolute left-20 mr-16 opacity-25 w-78 h-78 top-1010 invisible md:visible">
         <svg
           version="1.0"
           xmlns="http://www.w3.org/2000/svg"

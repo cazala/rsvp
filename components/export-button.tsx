@@ -11,6 +11,7 @@ interface RsvpResponse {
   whatsapp: string | null;
   dietary_requirements: string | null;
   needs_transfer: boolean;
+  return_time: string | null;
   is_minor: boolean;
   comment: string | null;
 }
@@ -32,6 +33,7 @@ export default function ExportButton({ rsvps }: ExportButtonProps) {
       "WhatsApp",
       "Menor de Edad",
       "Necesita Traslado",
+      "Horario de Vuelta",
       "Restricciones Alimentarias",
       "Comentario",
       "Fecha de Confirmación",
@@ -46,6 +48,7 @@ export default function ExportButton({ rsvps }: ExportButtonProps) {
           `"${rsvp.whatsapp || (rsvp.is_minor ? "Menor de edad" : "")}"`,
           rsvp.is_minor ? "Sí" : "No",
           rsvp.needs_transfer ? "Sí" : "No",
+          rsvp.return_time ? (rsvp.return_time === "temprano" ? "00:00" : "04:30") : "",
           `"${rsvp.dietary_requirements || ""}"`,
           `"${rsvp.comment || ""}"`,
           `"${new Date(rsvp.created_at).toLocaleDateString("es-AR")}"`,

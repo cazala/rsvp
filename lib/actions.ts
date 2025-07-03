@@ -11,6 +11,7 @@ export async function submitRsvp(formData: FormData) {
     const whatsapp = formData.get("whatsapp") as string;
     const dietary = formData.get("dietary") as string;
     const transfer = formData.get("transfer") as string;
+    const returnTime = formData.get("return_time") as string;
     const isMinor = formData.get("is_minor") === "on";
     const comment = formData.get("comment") as string;
 
@@ -41,6 +42,7 @@ export async function submitRsvp(formData: FormData) {
         whatsapp: whatsapp?.trim() || null,
         dietary_requirements: dietary?.trim() || null,
         needs_transfer: transfer === "yes",
+        return_time: transfer === "yes" ? returnTime : null,
         is_minor: isMinor,
         comment: comment?.trim() || null,
       })

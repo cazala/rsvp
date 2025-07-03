@@ -15,6 +15,7 @@ export default function RsvpForm() {
   const [message, setMessage] = useState("");
   const [isPending, startTransition] = useTransition();
   const [isMinor, setIsMinor] = useState(false);
+  const [needsTransfer, setNeedsTransfer] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -146,7 +147,11 @@ export default function RsvpForm() {
             <Label className="text-soft-gray font-light">
               ¿Necesitás traslado?
             </Label>
-            <RadioGroup name="transfer" defaultValue="no">
+            <RadioGroup 
+              name="transfer" 
+              defaultValue="no"
+              onValueChange={(value) => setNeedsTransfer(value === "yes")}
+            >
               <div className="flex items-center space-x-2">
                 <RadioGroupItem
                   value="yes"
@@ -175,6 +180,42 @@ export default function RsvpForm() {
               </div>
             </RadioGroup>
           </div>
+
+          {needsTransfer && (
+            <div className="space-y-3">
+              <Label className="text-soft-gray font-light">
+                ¿Te quedás a la fiesta electrónica?
+              </Label>
+              <RadioGroup name="return_time" defaultValue="tarde">
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem
+                    value="tarde"
+                    id="return-late"
+                    className="border-2 border-ocean-blue/30 text-ocean-blue"
+                  />
+                  <Label
+                    htmlFor="return-late"
+                    className="text-soft-gray font-light"
+                  >
+                    ¡Sí! me quedo hasta las 4:30
+                  </Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem
+                    value="temprano"
+                    id="return-early"
+                    className="border-2 border-ocean-blue/30 text-ocean-blue"
+                  />
+                  <Label
+                    htmlFor="return-early"
+                    className="text-soft-gray font-light"
+                  >
+                    No, me vuelvo a las 00:00
+                  </Label>
+                </div>
+              </RadioGroup>
+            </div>
+          )}
 
           <div className="space-y-2">
             <Label htmlFor="comment" className="text-soft-gray font-light">

@@ -1,7 +1,7 @@
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
 import { checkAdminSession, logoutAdmin } from "@/lib/auth-actions";
 import { redirect } from "next/navigation";
-import { Users, Calendar, Car, Baby, LogOut } from "lucide-react";
+import { Users, Calendar, Car, Baby, LogOut, Clock } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import ExportButton from "@/components/export-button";
@@ -15,6 +15,7 @@ type Rsvp = {
   whatsapp: string | null;
   dietary_requirements: string | null;
   needs_transfer: boolean;
+  return_time: string | null;
   is_minor: boolean;
   comment: string | null;
 };
@@ -44,6 +45,8 @@ export default async function AdminPage() {
 
   const total = rsvps.length;
   const transfers = rsvps.filter((r) => r.needs_transfer).length;
+  const returnEarly = rsvps.filter((r) => r.return_time === "temprano").length;
+  const returnLate = rsvps.filter((r) => r.return_time === "tarde").length;
   const dietary = rsvps.filter((r) => r.dietary_requirements?.trim()).length;
   const minors = rsvps.filter((r) => r.is_minor).length;
 
@@ -75,10 +78,12 @@ export default async function AdminPage() {
         </div>
 
         {/* stats */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-6 mb-8">
           {[
             { label: "Total Invitados", value: total, icon: Users },
             { label: "Necesitan Traslado", value: transfers, icon: Car },
+            { label: "Vuelta Temprano (00:00)", value: returnEarly, icon: Clock },
+            { label: "Vuelta Tarde (04:30)", value: returnLate, icon: Clock },
             {
               label: "Restricciones Alimentarias",
               value: dietary,
@@ -123,6 +128,7 @@ export default async function AdminPage() {
                         "WhatsApp",
                         "Menor",
                         "Traslado",
+                        "Horario Vuelta",
                         "Restricciones",
                         "Comentario",
                         "Fecha",
@@ -175,6 +181,21 @@ export default async function AdminPage() {
                           >
                             {r.needs_transfer ? "Sí" : "No"}
                           </span>
+                        </td>
+                        <td className="p-2">
+                          {r.return_time ? (
+                            <span
+                              className={`px-2 py-1 rounded-full text-xs ${
+                                r.return_time === "temprano"
+                                  ? "bg-blue-100 text-blue-800"
+                                  : "bg-purple-100 text-purple-800"
+                              }`}
+                            >
+                              {r.return_time === "temprano" ? "00:00" : "04:30"}
+                            </span>
+                          ) : (
+                            <span className="italic text-gray-400">–</span>
+                          )}
                         </td>
                         <td
                           className="p-2 max-w-xs truncate"
