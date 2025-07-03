@@ -9,7 +9,7 @@ export default function Dresscode() {
           Elegante Sport
         </h2>
 
-        <p className="text-soft-gray font-light leading-relaxed text-sm">
+        <p className="text-soft-gray font-light leading-relaxed text-md">
           Vestimenta elegante pero cómoda. La recepcion es afuera sobre cesped
           asi que ojo con los tacos.
         </p>

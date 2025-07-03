@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Hero from "@/components/hero"
 import DateCountdown from "@/components/date-countdown"
 import Venue from "@/components/venue"
+import Itinerary from "@/components/itinerary"
 import Dresscode from "@/components/dresscode"
 import RsvpForm from "@/components/rsvp-form"
 import Footer from "@/components/footer"
@@ -26,6 +27,7 @@ export default function Home() {
         <Hero />
         <DateCountdown date={WEDDING_DATE} />
         <Venue />
+        <Itinerary />
         <Dresscode />
         <RsvpForm />
         <Footer />
