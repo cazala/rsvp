@@ -147,8 +147,8 @@ export default function RsvpForm() {
             <Label className="text-soft-gray font-light">
               ¿Necesitás traslado?
             </Label>
-            <RadioGroup 
-              name="transfer" 
+            <RadioGroup
+              name="transfer"
               defaultValue="no"
               onValueChange={(value) => setNeedsTransfer(value === "yes")}
             >
@@ -197,7 +197,7 @@ export default function RsvpForm() {
                     htmlFor="return-late"
                     className="text-soft-gray font-light"
                   >
-                    ¡Sí! me quedo hasta las 4:30
+                    Si, me quedo hasta las 4:30
                   </Label>
                 </div>
                 <div className="flex items-center space-x-2">
