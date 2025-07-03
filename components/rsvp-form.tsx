@@ -121,6 +121,8 @@ export default function RsvpForm() {
                 <Input
                   id="whatsapp"
                   name="whatsapp"
+                  type="tel"
+                  required={!isMinor}
                   placeholder="Tu número de WhatsApp"
                   className="border-2 border-ocean-blue/30 focus-visible:ring-ocean-blue focus-visible:border-ocean-blue font-light rounded-xl"
                 />

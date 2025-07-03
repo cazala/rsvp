@@ -11,7 +11,7 @@ export default function Venue() {
             Venue
           </p>
           <h2 className="text-3xl md:text-4xl font-handwritten text-ocean-blue mb-4">
-            Estancia La Lupita
+            Estancia Lupita
           </h2>
           <p className="text-lg text-soft-gray font-light mb-6">
             Del Viso, Buenos Aires
@@ -37,7 +37,7 @@ export default function Venue() {
             allowFullScreen={false}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Estancia La Lupita Map"
+            title="Estancia Lupita"
             className="w-full h-full"
           ></iframe>
         </div>
@@ -47,7 +47,7 @@ export default function Venue() {
             Ubicación
           </h3>
           <p className="text-[#6d5c50] font-light leading-relaxed max-w-2xl mx-auto mb-4">
-            Estancia La Lupita está ubicada en{" "}
+            Estancia Lupita está ubicada en{" "}
             <b className="font-bold">Viamonte 2298, Del Viso</b>. Es a unos
             30-45 minutos de Capital.
           </p>
@@ -75,7 +75,7 @@ export default function Venue() {
 
           <div className="pt-4">
             <a
-              href="https://maps.app.goo.gl/r6qtgTfT874Kxta78"
+              href="https://maps.app.goo.gl/FhDVMJoVtAp25Psv7?g_st=ic"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-8 py-3 border-2 border-ocean-blue text-ocean-blue hover:bg-ocean-blue hover:text-white transition-colors font-light tracking-wide rounded-full"
