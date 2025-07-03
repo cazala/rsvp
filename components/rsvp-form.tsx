@@ -38,7 +38,7 @@ export default function RsvpForm() {
             ¡Gracias!
           </h2>
           <p className="text-soft-gray font-light mb-6">{message}</p>
-          <Button
+          {/* <Button
             onClick={() => {
               setIsSubmitted(false);
               setMessage("");
@@ -47,7 +47,7 @@ export default function RsvpForm() {
             className="bg-ocean-blue hover:bg-sky-blue text-white font-light tracking-wide rounded-full cursor-pointer"
           >
             Confirmar Otra Asistencia
-          </Button>
+          </Button> */}
         </div>
       </section>
     );
