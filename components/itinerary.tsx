@@ -10,7 +10,7 @@ export default function Itinerary() {
   ];
 
   return (
-    <section className="py-16 relative">
+    <section className="py-16 relative md:w-150 md:mx-auto">
       <div className="bg-white/80 backdrop-blur-sm border-2 border-ocean-blue rounded-3xl p-8 px-4 md:p-12">
         <div className="text-center mb-12">
           <p className="text-sm text-ocean-blue font-light tracking-[0.2em] uppercase mb-2">

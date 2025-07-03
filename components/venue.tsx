@@ -81,7 +81,7 @@ export default function Venue() {
               className="inline-flex items-center px-8 py-3 border-2 border-ocean-blue text-ocean-blue hover:bg-ocean-blue hover:text-white transition-colors font-light tracking-wide rounded-full"
             >
               <Navigation className="mr-2 h-4 w-4" />
-              Obtener Indicaciones
+              Ver Indicaciones
             </a>
           </div>
         </div>
