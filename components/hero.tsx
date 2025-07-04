@@ -17,7 +17,7 @@ export default function Hero() {
               NURIA
             </h1>
             <p className="text-sm text-ocean-blue font-light tracking-[0.2em] uppercase">
-              se casan
+              Estancia Lupita
             </p>
           </div>
         </div>
