@@ -13,11 +13,11 @@ const delius = Delius({
 export const metadata: Metadata = {
   title: "Juanca & Nuria - 08.11.2025",
   description:
-    "Te invitamos a celebrar nuestro casamiento el 8 de noviembre de 2025 en Estancia Lupita, Del Viso. ¡Confirmá tu asistencia!",
+    "Te invitamos a celebrar nuestro casamiento el 8 de noviembre de 2025 en Estancia Lupita, Del Viso.",
   openGraph: {
     title: "Juanca & Nuria - 08.11.2025",
     description:
-      "Te invitamos a celebrar nuestro casamiento el 8 de noviembre de 2025 en Estancia Lupita, Del Viso. ¡Confirmá tu asistencia!",
+      "Te invitamos a celebrar nuestro casamiento el 8 de noviembre de 2025 en Estancia Lupita, Del Viso.",
     siteName: "Juanca & Nuria - 08.11.2025",
     images: [
       {
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Juanca & Nuria - 08.11.2025",
     description:
-      "Te invitamos a celebrar nuestro casamiento el 8 de noviembre de 2025 en Estancia Lupita, Del Viso. ¡Confirmá tu asistencia!",
+      "Te invitamos a celebrar nuestro casamiento el 8 de noviembre de 2025 en Estancia Lupita, Del Viso.",
     images: ["/thumbnail.png"],
   },
   metadataBase: new URL("https://rsvp-juanca-nuria.vercel.app/"),
