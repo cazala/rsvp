@@ -1,11 +1,14 @@
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
 import { checkAdminSession, logoutAdmin } from "@/lib/auth-actions";
+import { getInvitationLinks } from "@/lib/invitation-actions";
 import { redirect } from "next/navigation";
 import { Users, Calendar, Car, Baby, LogOut, Clock } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import ExportButton from "@/components/export-button";
-import DeleteRsvpButton from "@/components/delete-rsvp-button";
+import AdminRsvpTable from "@/components/admin-rsvp-table";
+import AdminInvitationsTable from "@/components/admin-invitations-table";
+import CustomTabs from "@/components/custom-tabs";
 
 type Rsvp = {
   id: number;
@@ -18,6 +21,17 @@ type Rsvp = {
   return_time: string | null;
   is_minor: boolean;
   comment: string | null;
+  link_id: string | null;
+  invitation_label?: string;
+};
+
+type InvitationLink = {
+  id: string;
+  label: string;
+  created_at: string;
+  created_by: string | null;
+  is_active: boolean;
+  rsvp_count: { count: number }[];
 };
 
 /* -------------------- data layer -------------------- */
@@ -25,14 +39,24 @@ async function fetchRsvps(): Promise<Rsvp[]> {
   const supabase = getSupabaseAdmin();
   const { data, error } = await supabase
     .from("rsvp_responses")
-    .select("*")
+    .select(
+      `
+      *,
+      invitation_links(label)
+    `
+    )
     .order("created_at", { ascending: false });
 
   if (error) {
     console.error("[Admin] Supabase error:", error);
     return [];
   }
-  return data ?? [];
+
+  // Transform data to include invitation label
+  return (data ?? []).map((rsvp) => ({
+    ...rsvp,
+    invitation_label: rsvp.invitation_links?.label || null,
+  }));
 }
 /* ---------------------------------------------------- */
 
@@ -40,8 +64,11 @@ export default async function AdminPage() {
   /* 1️⃣  Auth first – only proceed if the cookie is valid */
   if (!(await checkAdminSession())) redirect("/admin/login");
 
-  /* 2️⃣  Fetch RSVP data using service-role key (no RLS issues) */
-  const rsvps = await fetchRsvps();
+  /* 2️⃣  Fetch data using service-role key (no RLS issues) */
+  const [rsvps, invitations] = await Promise.all([
+    fetchRsvps(),
+    getInvitationLinks(),
+  ]);
 
   const total = rsvps.length;
   const transfers = rsvps.filter((r) => r.needs_transfer).length;
@@ -80,9 +107,13 @@ export default async function AdminPage() {
         {/* stats */}
         <div className="grid grid-cols-1 md:grid-cols-6 gap-6 mb-8">
           {[
-            { label: "Total Invitados", value: total, icon: Users },
+            { label: "Total Confirmados", value: total, icon: Users },
             { label: "Necesitan Traslado", value: transfers, icon: Car },
-            { label: "Vuelta Temprano (00:00)", value: returnEarly, icon: Clock },
+            {
+              label: "Vuelta Temprano (00:00)",
+              value: returnEarly,
+              icon: Clock,
+            },
             { label: "Vuelta Tarde (04:30)", value: returnLate, icon: Clock },
             {
               label: "Restricciones Alimentarias",
@@ -105,124 +136,26 @@ export default async function AdminPage() {
           ))}
         </div>
 
-        {/* table */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-2xl font-handwritten text-ocean-blue">
-              Confirmaciones Recibidas
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            {rsvps.length === 0 ? (
-              <p className="text-center text-soft-gray py-8">
-                Aún no hay confirmaciones.
-              </p>
-            ) : (
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead>
-                    <tr className="border-b">
-                      {[
-                        "Nombre",
-                        "Email",
-                        "WhatsApp",
-                        "Menor",
-                        "Traslado",
-                        "Horario Vuelta",
-                        "Restricciones",
-                        "Comentario",
-                        "Fecha",
-                        "Acciones",
-                      ].map((h) => (
-                        <th
-                          key={h}
-                          className="p-2 text-left font-medium text-ocean-blue"
-                        >
-                          {h}
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {rsvps.map((r) => (
-                      <tr
-                        key={r.id}
-                        className="border-b hover:bg-gray-50 group"
-                      >
-                        <td className="p-2">{r.name}</td>
-                        <td className="p-2">
-                          {r.email ?? (
-                            <span className="italic text-gray-400">–</span>
-                          )}
-                        </td>
-                        <td className="p-2">
-                          {r.whatsapp ?? (
-                            <span className="italic text-gray-400">–</span>
-                          )}
-                        </td>
-                        <td className="p-2">
-                          <span
-                            className={`px-2 py-1 rounded-full text-xs ${
-                              r.is_minor
-                                ? "bg-orange-100 text-orange-800"
-                                : "bg-gray-100 text-gray-800"
-                            }`}
-                          >
-                            {r.is_minor ? "Sí" : "No"}
-                          </span>
-                        </td>
-                        <td className="p-2">
-                          <span
-                            className={`px-2 py-1 rounded-full text-xs ${
-                              r.needs_transfer
-                                ? "bg-green-100 text-green-800"
-                                : "bg-gray-100 text-gray-800"
-                            }`}
-                          >
-                            {r.needs_transfer ? "Sí" : "No"}
-                          </span>
-                        </td>
-                        <td className="p-2">
-                          {r.return_time ? (
-                            <span
-                              className={`px-2 py-1 rounded-full text-xs ${
-                                r.return_time === "temprano"
-                                  ? "bg-blue-100 text-blue-800"
-                                  : "bg-purple-100 text-purple-800"
-                              }`}
-                            >
-                              {r.return_time === "temprano" ? "00:00" : "04:30"}
-                            </span>
-                          ) : (
-                            <span className="italic text-gray-400">–</span>
-                          )}
-                        </td>
-                        <td
-                          className="p-2 max-w-xs truncate"
-                          title={r.dietary_requirements ?? ""}
-                        >
-                          {r.dietary_requirements || "-"}
-                        </td>
-                        <td
-                          className="p-2 max-w-xs truncate"
-                          title={r.comment ?? ""}
-                        >
-                          {r.comment || "-"}
-                        </td>
-                        <td className="p-2">
-                          {new Date(r.created_at).toLocaleDateString("es-AR")}
-                        </td>
-                        <td className="p-2">
-                          <DeleteRsvpButton id={r.id} name={r.name} />
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            )}
-          </CardContent>
-        </Card>
+        {/* tabbed interface */}
+        <CustomTabs
+          defaultTab="confirmados"
+          tabs={[
+            {
+              id: "confirmados",
+              label: "Confirmados",
+              content: <AdminRsvpTable rsvps={rsvps} />,
+            },
+            {
+              id: "invitaciones",
+              label: "Invitaciones",
+              content: (
+                <AdminInvitationsTable
+                  invitations={invitations as InvitationLink[]}
+                />
+              ),
+            },
+          ]}
+        />
       </div>
     </div>
   );

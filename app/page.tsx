@@ -7,6 +7,7 @@ import Dresscode from "@/components/dresscode"
 import RsvpForm from "@/components/rsvp-form"
 import Footer from "@/components/footer"
 import { BackgroundIllustrations } from "@/components/background-illustrations"
+import { validateInvitationLink } from "@/lib/invitation-actions"
 
 // Get the event date from environment variables, with a fallback
 const WEDDING_DATE = process.env.WEDDING_DATE || process.env.NEXT_PUBLIC_WEDDING_DATE || "2025-11-08T16:00:00"
@@ -16,7 +17,23 @@ export const metadata: Metadata = {
   description: `Te invitamos a celebrar nuestro casamiento el ${new Date(WEDDING_DATE).toLocaleDateString("es-AR")}`,
 }
 
-export default function Home() {
+interface HomeProps {
+  searchParams: Promise<{ invite?: string }>
+}
+
+export default async function Home({ searchParams }: HomeProps) {
+  const params = await searchParams
+  const inviteId = params.invite
+  let validInvite = null
+
+  // Validate invitation link if provided
+  if (inviteId) {
+    const validation = await validateInvitationLink(inviteId)
+    if (validation.valid) {
+      validInvite = validation.link
+    }
+  }
+
   return (
     <main className="min-h-screen bg-light-blue relative overflow-hidden">
       {/* Background illustrations */}
@@ -29,7 +46,7 @@ export default function Home() {
         <Venue />
         <Itinerary />
         <Dresscode />
-        <RsvpForm />
+        <RsvpForm inviteId={inviteId} validInvite={validInvite} />
         <Footer />
       </div>
     </main>

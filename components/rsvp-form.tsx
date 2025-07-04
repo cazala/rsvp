@@ -10,12 +10,22 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
 import { submitRsvp } from "@/lib/actions";
 
-export default function RsvpForm() {
+interface RsvpFormProps {
+  inviteId?: string;
+  validInvite?: { id: string; label: string } | null;
+}
+
+export default function RsvpForm({ validInvite }: RsvpFormProps) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [message, setMessage] = useState("");
   const [isPending, startTransition] = useTransition();
   const [isMinor, setIsMinor] = useState(false);
   const [needsTransfer, setNeedsTransfer] = useState(false);
+
+  // Don't show form if no valid invitation is provided
+  if (!validInvite) {
+    return null;
+  }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -70,6 +80,9 @@ export default function RsvpForm() {
 
       <div className="max-w-md mx-auto bg-white/90 backdrop-blur-sm border-2 border-ocean-blue rounded-3xl p-8">
         <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Hidden input for invitation link */}
+          <input type="hidden" name="link_id" value={validInvite?.id || ""} />
+          
           <div className="space-y-2">
             <Label htmlFor="name" className="text-soft-gray font-light">
               Nombre Completo
