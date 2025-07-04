@@ -1,4 +1,8 @@
-export function BackgroundIllustrations() {
+export function BackgroundIllustrations({
+  validInvite,
+}: {
+  validInvite?: boolean;
+}) {
   return (
     <div className="testato inset-0 pointer-events-none z-0">
       {/* Martini */}
@@ -287,7 +291,11 @@ export function BackgroundIllustrations() {
       </div> */}
 
       {/* Snuria & Swanka */}
-      <div className="absolute opacity-25 w-98 h-98 bottom-40 right-1/2 -mr-54 md:w-128 md:h-128 md:bottom-48 md:right-0 md:-mr-16">
+      <div
+        className={`absolute opacity-25 w-98 h-98 bottom-40 right-1/2 -mr-54 md:w-128 md:h-128 md:bottom-48 md:right-0 md:-mr-16 ${
+          validInvite ? "visible" : "invisible"
+        }`}
+      >
         <svg
           version="1.0"
           xmlns="http://www.w3.org/2000/svg"
