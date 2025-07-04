@@ -30,15 +30,13 @@ export default function Venue() {
 
         <div className="aspect-video w-full mb-6 overflow-hidden rounded-2xl border-2 border-ocean-blue">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3290.0115759533247!2d-58.79845932345247!3d-34.44954997307249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc9f2b82b1c9c9%3A0x8c4d79c3f3a2a2a5!2sGral.+Viamonte+2298%2C+B1669+Del+Viso%2C+Provincia+de+Buenos+Aires!5e0!3m2!1sen!2sar!4v1715530750000!5m2!1sen!2sar"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1644.9652941471286!2d-58.814839769516844!3d-34.45390983079109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc9fae3878d357%3A0xa5ee6ab1b1e131d6!2sEstancia%20Lupita!5e0!3m2!1sen!2sar!4v1751640774140!5m2!1sen!2sar"
             width="100%"
             height="100%"
             style={{ border: 0 }}
             allowFullScreen={false}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Estancia Lupita"
-            className="w-full h-full"
           ></iframe>
         </div>
 

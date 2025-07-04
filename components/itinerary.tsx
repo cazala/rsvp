@@ -2,7 +2,7 @@
 
 export default function Itinerary() {
   const schedule = [
-    { time: "18:30", activity: "Recepción, juegos, catering" },
+    { time: "18:30", activity: "Recepción, comida y tragos" },
     { time: "20:30", activity: "Tanda de baile (música pop)" },
     { time: "22:45", activity: "Brindis y mesa dulce" },
     { time: "23:30", activity: "DJs (música electrónica)" },
