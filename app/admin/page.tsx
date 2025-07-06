@@ -1,5 +1,8 @@
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
 import { checkAdminSession, logoutAdmin } from "@/lib/auth-actions";
+
+// Force dynamic rendering for admin pages (uses cookies for authentication)
+export const dynamic = 'force-dynamic';
 import { getInvitationLinks } from "@/lib/invitation-actions";
 import { redirect } from "next/navigation";
 import { Users, Calendar, Car, Baby, LogOut, Clock } from "lucide-react";
