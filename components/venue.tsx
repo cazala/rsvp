@@ -15,7 +15,7 @@ export default function Venue() {
           viewBox="0 0 1766.000000 1774.000000"
           preserveAspectRatio="xMidYMid meet"
           fill="currentColor"
-          className="text-ocean-blue"
+          className="text-primary"
           style={{
             width: "100%",
             height: "100%",
@@ -553,7 +553,7 @@ c213 -41 250 -62 374 -210 44 -52 88 -98 99 -103 16 -9 18 -17 13 -56 -3 -26
           viewBox="0 0 250.000000 198.000000"
           preserveAspectRatio="xMidYMid meet"
           fill="currentColor"
-          className="text-ocean-blue"
+          className="text-primary"
           style={{
             width: "100%",
             height: "100%",
@@ -693,12 +693,12 @@ c176 -39 309 -178 352 -370 25 -113 15 -207 -32 -301 -40 -79 -56 -93 -24 -20
           </g>
         </svg>
       </div>
-      <div className="bg-white/80 backdrop-blur-sm border-2 border-ocean-blue rounded-3xl p-8 md:p-12">
+      <div className="bg-white/80 backdrop-blur-sm border-2 border-primary rounded-3xl p-8 md:p-12">
         <div className="text-center mb-10">
-          <p className="text-sm text-ocean-blue font-light tracking-[0.2em] uppercase mb-2">
+          <p className="text-sm text-primary font-light tracking-[0.2em] uppercase mb-2">
             Venue
           </p>
-          <h2 className="text-3xl md:text-4xl font-handwritten text-ocean-blue mb-4">
+          <h2 className="text-3xl md:text-4xl font-handwritten text-primary mb-4">
             Estancia Lupita
           </h2>
           <p className="text-lg text-soft-gray font-light mb-6">
@@ -709,14 +709,14 @@ c176 -39 309 -178 352 -370 25 -113 15 -207 -32 -301 -40 -79 -56 -93 -24 -20
             href="https://maps.app.goo.gl/wdKEnfEndLM1GVc89"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-8 py-3 bg-ocean-blue text-white hover:bg-sky-blue transition-colors font-light tracking-wide rounded-full"
+            className="inline-flex items-center px-8 py-3 bg-primary text-white hover:bg-primary-hover transition-colors font-light tracking-wide rounded-full"
           >
             <MapPin className="mr-2 h-4 w-4" />
             Ver Ubicación
           </a> */}
         </div>
 
-        <div className="aspect-video w-full mb-6 overflow-hidden rounded-2xl border-2 border-ocean-blue">
+        <div className="aspect-video w-full mb-6 overflow-hidden rounded-2xl border-2 border-primary">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1644.9652941471286!2d-58.814839769516844!3d-34.45390983079109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc9fae3878d357%3A0xa5ee6ab1b1e131d6!2sEstancia%20Lupita!5e0!3m2!1sen!2sar!4v1751640774140!5m2!1sen!2sar"
             width="100%"
@@ -729,7 +729,7 @@ c176 -39 309 -178 352 -370 25 -113 15 -207 -32 -301 -40 -79 -56 -93 -24 -20
         </div>
 
         <div className="space-y-4 text-center">
-          <h3 className="text-xl font-handwritten text-ocean-blue">
+          <h3 className="text-xl font-handwritten text-primary">
             Ubicación
           </h3>
           <p className="text-[#6d5c50] font-light leading-relaxed max-w-2xl mx-auto mb-4">
@@ -738,14 +738,14 @@ c176 -39 309 -178 352 -370 25 -113 15 -207 -32 -301 -40 -79 -56 -93 -24 -20
             30-45 minutos de Capital.
           </p>
 
-          <h3 className="text-xl font-handwritten text-ocean-blue">Traslado</h3>
+          <h3 className="text-xl font-handwritten text-primary">Traslado</h3>
           <p className="text-[#6d5c50] font-light leading-relaxed max-w-2xl mx-auto mb-4">
             Va a haber un traslado saliendo desde{" "}
             <b className="font-bold">Plaza Italia</b>, podes indicar en el
             formulario de confirmacion si querés usar el servicio.
           </p>
 
-          <h3 className="text-xl font-handwritten text-ocean-blue">
+          <h3 className="text-xl font-handwritten text-primary">
             Voy en auto
           </h3>
           <p className="text-[#6d5c50] font-light leading-relaxed max-w-2xl mx-auto">
@@ -764,7 +764,7 @@ c176 -39 309 -178 352 -370 25 -113 15 -207 -32 -301 -40 -79 -56 -93 -24 -20
               href="https://maps.app.goo.gl/FhDVMJoVtAp25Psv7?g_st=ic"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-8 py-3 border-2 border-ocean-blue text-ocean-blue hover:bg-ocean-blue hover:text-white transition-colors font-light tracking-wide rounded-full"
+              className="inline-flex items-center px-8 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-white transition-colors font-light tracking-wide rounded-full"
             >
               <Navigation className="mr-2 h-4 w-4" />
               Ver Indicaciones

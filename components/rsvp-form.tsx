@@ -44,8 +44,8 @@ export default function RsvpForm({ validInvite }: RsvpFormProps) {
   if (isSubmitted) {
     return (
       <section id="rsvp" className="py-16 relative">
-        <div className="max-w-md mx-auto bg-white/90 backdrop-blur-sm border-2 border-ocean-blue rounded-3xl p-8 text-center">
-          <h2 className="text-3xl font-handwritten text-ocean-blue mb-4">
+        <div className="max-w-md mx-auto bg-white/90 backdrop-blur-sm border-2 border-primary rounded-3xl p-8 text-center">
+          <h2 className="text-3xl font-handwritten text-primary mb-4">
             ¡Gracias!
           </h2>
           <p className="text-soft-gray font-light mb-6">{message}</p>
@@ -55,7 +55,7 @@ export default function RsvpForm({ validInvite }: RsvpFormProps) {
               setMessage("");
               setIsMinor(false);
             }}
-            className="bg-ocean-blue hover:bg-sky-blue text-white font-light tracking-wide rounded-full cursor-pointer"
+            className="bg-primary hover:bg-primary-hover text-white font-light tracking-wide rounded-full cursor-pointer"
           >
             Confirmar Otra Asistencia
           </Button> */}
@@ -67,10 +67,10 @@ export default function RsvpForm({ validInvite }: RsvpFormProps) {
   return (
     <section id="rsvp" className="py-16 relative">
       <div className="text-center mb-8">
-        <p className="text-sm text-ocean-blue font-light tracking-[0.2em] uppercase mb-2">
+        <p className="text-sm text-primary font-light tracking-[0.2em] uppercase mb-2">
           RSVP
         </p>
-        <h2 className="text-3xl md:text-4xl font-handwritten text-ocean-blue mb-4">
+        <h2 className="text-3xl md:text-4xl font-handwritten text-primary mb-4">
           Confirmación
         </h2>
         <p className="text-soft-gray font-light">
@@ -78,7 +78,7 @@ export default function RsvpForm({ validInvite }: RsvpFormProps) {
         </p>
       </div>
 
-      <div className="max-w-md mx-auto bg-white/90 backdrop-blur-sm border-2 border-ocean-blue rounded-3xl p-8">
+      <div className="max-w-md mx-auto bg-white/90 backdrop-blur-sm border-2 border-primary rounded-3xl p-8">
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Hidden input for invitation link */}
           <input type="hidden" name="link_id" value={validInvite?.id || ""} />
@@ -92,7 +92,7 @@ export default function RsvpForm({ validInvite }: RsvpFormProps) {
               name="name"
               required
               placeholder="Tu nombre completo"
-              className="border-2 border-ocean-blue/30 focus-visible:ring-ocean-blue focus-visible:border-ocean-blue font-light rounded-xl"
+              className="border-2 border-primary/30 focus-visible:ring-primary focus-visible:border-primary font-light rounded-xl"
             />
           </div>
 
@@ -102,7 +102,7 @@ export default function RsvpForm({ validInvite }: RsvpFormProps) {
               name="is_minor"
               checked={isMinor}
               onCheckedChange={(checked) => setIsMinor(checked as boolean)}
-              className="border-2 border-ocean-blue/30 data-[state=checked]:bg-ocean-blue data-[state=checked]:border-ocean-blue"
+              className="border-2 border-primary/30 data-[state=checked]:bg-primary data-[state=checked]:border-primary"
             />
             <Label
               htmlFor="is_minor"
@@ -124,7 +124,7 @@ export default function RsvpForm({ validInvite }: RsvpFormProps) {
                   type="email"
                   required={!isMinor}
                   placeholder="tu@email.com"
-                  className="border-2 border-ocean-blue/30 focus-visible:ring-ocean-blue focus-visible:border-ocean-blue font-light rounded-xl"
+                  className="border-2 border-primary/30 focus-visible:ring-primary focus-visible:border-primary font-light rounded-xl"
                 />
               </div>
 
@@ -138,7 +138,7 @@ export default function RsvpForm({ validInvite }: RsvpFormProps) {
                   type="tel"
                   required={!isMinor}
                   placeholder="Tu número de WhatsApp"
-                  className="border-2 border-ocean-blue/30 focus-visible:ring-ocean-blue focus-visible:border-ocean-blue font-light rounded-xl"
+                  className="border-2 border-primary/30 focus-visible:ring-primary focus-visible:border-primary font-light rounded-xl"
                 />
               </div>
             </>
@@ -152,7 +152,7 @@ export default function RsvpForm({ validInvite }: RsvpFormProps) {
               id="dietary"
               name="dietary"
               placeholder="Alergias o restricciones alimentarias"
-              className="border-2 border-ocean-blue/30 focus-visible:ring-ocean-blue focus-visible:border-ocean-blue font-light rounded-xl"
+              className="border-2 border-primary/30 focus-visible:ring-primary focus-visible:border-primary font-light rounded-xl"
             />
           </div>
 
@@ -169,7 +169,7 @@ export default function RsvpForm({ validInvite }: RsvpFormProps) {
                 <RadioGroupItem
                   value="yes"
                   id="transfer-yes"
-                  className="border-2 border-ocean-blue/30 text-ocean-blue"
+                  className="border-2 border-primary/30 text-primary"
                 />
                 <Label
                   htmlFor="transfer-yes"
@@ -182,7 +182,7 @@ export default function RsvpForm({ validInvite }: RsvpFormProps) {
                 <RadioGroupItem
                   value="no"
                   id="transfer-no"
-                  className="border-2 border-ocean-blue/30 text-ocean-blue"
+                  className="border-2 border-primary/30 text-primary"
                 />
                 <Label
                   htmlFor="transfer-no"
@@ -204,7 +204,7 @@ export default function RsvpForm({ validInvite }: RsvpFormProps) {
                   <RadioGroupItem
                     value="tarde"
                     id="return-late"
-                    className="border-2 border-ocean-blue/30 text-ocean-blue"
+                    className="border-2 border-primary/30 text-primary"
                   />
                   <Label
                     htmlFor="return-late"
@@ -217,7 +217,7 @@ export default function RsvpForm({ validInvite }: RsvpFormProps) {
                   <RadioGroupItem
                     value="temprano"
                     id="return-early"
-                    className="border-2 border-ocean-blue/30 text-ocean-blue"
+                    className="border-2 border-primary/30 text-primary"
                   />
                   <Label
                     htmlFor="return-early"
@@ -238,7 +238,7 @@ export default function RsvpForm({ validInvite }: RsvpFormProps) {
               id="comment"
               name="comment"
               placeholder="Algo que quieras agregar..."
-              className="border-2 border-ocean-blue/30 focus-visible:ring-ocean-blue focus-visible:border-ocean-blue font-light rounded-xl"
+              className="border-2 border-primary/30 focus-visible:ring-primary focus-visible:border-primary font-light rounded-xl"
             />
           </div>
 
@@ -251,7 +251,7 @@ export default function RsvpForm({ validInvite }: RsvpFormProps) {
           <Button
             type="submit"
             disabled={isPending}
-            className="w-full bg-ocean-blue hover:bg-sky-blue text-white font-light tracking-wide rounded-full cursor-pointer"
+            className="w-full bg-primary hover:bg-primary-hover text-white font-light tracking-wide rounded-full cursor-pointer"
           >
             {isPending ? "Enviando..." : "Confirmar Asistencia"}
           </Button>

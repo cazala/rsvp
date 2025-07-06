@@ -45,7 +45,7 @@ export default function AdminRsvpTable({ rsvps }: AdminRsvpTableProps) {
             placeholder="Buscar por nombre..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="max-w-sm border-2 border-ocean-blue/30 focus-visible:ring-ocean-blue focus-visible:border-ocean-blue font-light rounded-xl"
+            className="max-w-sm border-2 border-primary/30 focus-visible:ring-primary focus-visible:border-primary font-light rounded-xl"
           />
         </div>
       </CardHeader>
@@ -76,7 +76,7 @@ export default function AdminRsvpTable({ rsvps }: AdminRsvpTableProps) {
                   ].map((h) => (
                     <th
                       key={h}
-                      className="p-2 text-left font-medium text-ocean-blue"
+                      className="p-2 text-left font-medium text-primary"
                     >
                       {h}
                     </th>

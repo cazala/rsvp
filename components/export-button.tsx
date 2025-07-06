@@ -78,7 +78,7 @@ export default function ExportButton({ rsvps }: ExportButtonProps) {
   return (
     <Button
       onClick={exportToCSV}
-      className="flex items-center gap-2 bg-ocean-blue hover:bg-sky-blue text-white font-light tracking-wide cursor-pointer"
+      className="flex items-center gap-2 bg-primary hover:bg-primary-hover text-white font-light tracking-wide cursor-pointer"
     >
       <Download className="h-5 w-5" />
       Exportar CSV

@@ -45,8 +45,8 @@ export default function DateCountdown({ date }: DateCountdownProps) {
 
   return (
     <section className="flex flex-col items-center justify-center text-center py-16 relative">
-      <div className="bg-white/80 backdrop-blur-sm border-2 border-ocean-blue rounded-3xl p-8 md:p-12 max-w-2xl w-full">
-        <p className="text-sm text-ocean-blue font-light tracking-[0.2em] uppercase mb-4">
+      <div className="bg-white/80 backdrop-blur-sm border-2 border-primary rounded-3xl p-8 md:p-12 max-w-2xl w-full">
+        <p className="text-sm text-primary font-light tracking-[0.2em] uppercase mb-4">
           Guardá la fecha
         </p>
         <h2 className="text-2xl md:text-3xl font-light mb-8 text-soft-gray">
@@ -61,8 +61,8 @@ export default function DateCountdown({ date }: DateCountdownProps) {
             { label: "Segundos", value: timeLeft.seconds },
           ].map((item) => (
             <div key={item.label} className="flex flex-col items-center">
-              <div className="md:w-18 md:h-18 flex items-center justify-center border-2 border-ocean-blue rounded-full mb-2 bg-white sm:w-[72px] sm:h-[72px] w-[64px] h-[64px]">
-                <span className="text-lg md:text-2xl font-bold text-ocean-blue">
+              <div className="md:w-18 md:h-18 flex items-center justify-center border-2 border-primary rounded-full mb-2 bg-white sm:w-[72px] sm:h-[72px] w-[64px] h-[64px]">
+                <span className="text-lg md:text-2xl font-bold text-primary">
                   {item.value}
                 </span>
               </div>
@@ -85,7 +85,7 @@ export default function DateCountdown({ date }: DateCountdownProps) {
           viewBox="0 0 1328.000000 566.000000"
           preserveAspectRatio="xMidYMid meet"
           fill="currentColor"
-          className="text-ocean-blue"
+          className="text-primary"
           style={{
             width: "100%",
             height: "100%",

@@ -22,7 +22,7 @@ export default function Itinerary() {
             viewBox="0 0 1328.000000 566.000000"
             preserveAspectRatio="xMidYMid meet"
             fill="currentColor"
-            className="text-ocean-blue"
+            className="text-primary"
             style={{
               width: "100%",
               height: "100%",
@@ -108,7 +108,7 @@ export default function Itinerary() {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 812.000000 888.000000"
             fill="currentColor"
-            className="text-ocean-blue"
+            className="text-primary"
             style={{
               width: "100%",
               height: "100%",
@@ -238,7 +238,7 @@ m-3454 -297 c150 -50 300 -147 368 -240 43 -58 57 -120 35 -148 -25 -30 -97
             viewBox="0 0 280.000000 222.000000"
             preserveAspectRatio="xMidYMid meet"
             fill="currentColor"
-            className="text-ocean-blue"
+            className="text-primary"
             style={{
               width: "100%",
               height: "100%",
@@ -370,12 +370,12 @@ c115 -20 162 -39 285 -116 110 -68 218 -170 265 -251 30 -51 81 -211 97 -306
             </g>
           </svg>
         </div>
-        <div className="bg-white/80 backdrop-blur-sm border-2 border-ocean-blue rounded-3xl p-8 px-4 md:p-12">
+        <div className="bg-white/80 backdrop-blur-sm border-2 border-primary rounded-3xl p-8 px-4 md:p-12">
           <div className="text-center mb-12">
-            <p className="text-sm text-ocean-blue font-light tracking-[0.2em] uppercase mb-2">
+            <p className="text-sm text-primary font-light tracking-[0.2em] uppercase mb-2">
               Horarios
             </p>
-            <h2 className="text-3xl md:text-4xl font-handwritten text-ocean-blue mb-4">
+            <h2 className="text-3xl md:text-4xl font-handwritten text-primary mb-4">
               Itinerario
             </h2>
             <p className="text-lg text-soft-gray font-light">
@@ -386,7 +386,7 @@ c115 -20 162 -39 285 -116 110 -68 218 -170 265 -251 30 -51 81 -211 97 -306
           {/* Timeline */}
           <div className="relative max-w-4xl mx-auto">
             {/* Vertical line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-ocean-blue h-full"></div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-primary h-full"></div>
 
             {/* Timeline items */}
             <div className="space-y-12">
@@ -396,7 +396,7 @@ c115 -20 162 -39 285 -116 110 -68 218 -170 265 -251 30 -51 81 -211 97 -306
                 return (
                   <div key={index} className="relative flex items-center">
                     {/* Dot */}
-                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-ocean-blue rounded-full border-4 border-white shadow-lg z-10"></div>
+                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-lg z-10"></div>
 
                     {/* Content */}
                     <div
@@ -405,7 +405,7 @@ c115 -20 162 -39 285 -116 110 -68 218 -170 265 -251 30 -51 81 -211 97 -306
                       }`}
                     >
                       <div className={`${isLeft ? "mr-4" : "ml-4"}`}>
-                        <div className="text-2xl font-bold text-ocean-blue mb-2">
+                        <div className="text-2xl font-bold text-primary mb-2">
                           {item.time}
                         </div>
                         <div className="text-soft-gray font-light text-lg">

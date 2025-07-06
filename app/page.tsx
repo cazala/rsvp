@@ -40,7 +40,7 @@ export default async function Home({ searchParams }: HomeProps) {
   }
 
   return (
-    <main className="min-h-screen bg-light-blue relative overflow-hidden">
+    <main className="min-h-screen bg-primary-light relative overflow-hidden">
       {/* Background illustrations */}
       <BackgroundIllustrations validInvite={!!validInvite} />
 

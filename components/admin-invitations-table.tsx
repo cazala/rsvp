@@ -101,12 +101,12 @@ export default function AdminInvitationsTable({
               placeholder="Buscar por etiqueta..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="max-w-sm border-2 border-ocean-blue/30 focus-visible:ring-ocean-blue focus-visible:border-ocean-blue font-light rounded-xl"
+              className="max-w-sm border-2 border-primary/30 focus-visible:ring-primary focus-visible:border-primary font-light rounded-xl"
             />
           </div>
           <Button
             onClick={() => setIsCreating(true)}
-            className="bg-ocean-blue hover:bg-sky-blue text-white font-light tracking-wide rounded-full cursor-pointer"
+            className="bg-primary hover:bg-primary-hover text-white font-light tracking-wide rounded-full cursor-pointer"
           >
             <Plus className="h-4 w-4" />
             Crear
@@ -114,18 +114,18 @@ export default function AdminInvitationsTable({
         </div>
 
         {isCreating && (
-          <div className="mt-4 p-4 border-2 border-ocean-blue/30 rounded-xl bg-ocean-blue/5">
+          <div className="mt-4 p-4 border-2 border-primary/30 rounded-xl bg-primary/5">
             <div className="flex items-center space-x-2">
               <Input
                 placeholder="Etiqueta del enlace (ej: Familia García)"
                 value={newLabel}
                 onChange={(e) => setNewLabel(e.target.value)}
-                className="flex-1 border-2 border-ocean-blue/30 focus-visible:ring-ocean-blue focus-visible:border-ocean-blue font-light rounded-xl"
+                className="flex-1 border-2 border-primary/30 focus-visible:ring-primary focus-visible:border-primary font-light rounded-xl"
                 onKeyPress={(e) => e.key === "Enter" && handleCreateLink()}
               />
               <Button
                 onClick={handleCreateLink}
-                className="bg-ocean-blue hover:bg-sky-blue text-white font-light rounded-full cursor-pointer"
+                className="bg-primary hover:bg-primary-hover text-white font-light rounded-full cursor-pointer"
               >
                 Crear
               </Button>
@@ -135,7 +135,7 @@ export default function AdminInvitationsTable({
                   setNewLabel("");
                 }}
                 variant="outline"
-                className="border-ocean-blue text-ocean-blue hover:bg-ocean-blue hover:text-white rounded-full cursor-pointer"
+                className="border-primary text-primary hover:bg-primary hover:text-white rounded-full cursor-pointer"
               >
                 Cancelar
               </Button>
@@ -164,7 +164,7 @@ export default function AdminInvitationsTable({
                   ].map((h) => (
                     <th
                       key={h}
-                      className="p-2 text-left font-medium text-ocean-blue"
+                      className="p-2 text-left font-medium text-primary"
                     >
                       {h}
                     </th>
@@ -183,7 +183,7 @@ export default function AdminInvitationsTable({
                           <Input
                             value={editLabel}
                             onChange={(e) => setEditLabel(e.target.value)}
-                            className="border-2 border-ocean-blue/30 focus-visible:ring-ocean-blue focus-visible:border-ocean-blue font-light rounded-xl"
+                            className="border-2 border-primary/30 focus-visible:ring-primary focus-visible:border-primary font-light rounded-xl"
                             onKeyPress={(e) =>
                               e.key === "Enter" &&
                               handleUpdateLink(invitation.id)
@@ -192,7 +192,7 @@ export default function AdminInvitationsTable({
                           <Button
                             size="sm"
                             onClick={() => handleUpdateLink(invitation.id)}
-                            className="bg-ocean-blue hover:bg-sky-blue text-white font-light rounded-full cursor-pointer"
+                            className="bg-primary hover:bg-primary-hover text-white font-light rounded-full cursor-pointer"
                           >
                             Guardar
                           </Button>
@@ -203,7 +203,7 @@ export default function AdminInvitationsTable({
                               setEditingId(null);
                               setEditLabel("");
                             }}
-                            className="border-ocean-blue text-ocean-blue hover:bg-ocean-blue hover:text-white rounded-full cursor-pointer"
+                            className="border-primary text-primary hover:bg-primary hover:text-white rounded-full cursor-pointer"
                           >
                             Cancelar
                           </Button>
@@ -231,7 +231,7 @@ export default function AdminInvitationsTable({
                         <Button
                           size="sm"
                           onClick={() => copyToClipboard(invitation.id)}
-                          className="bg-ocean-blue hover:bg-sky-blue text-white font-light tracking-wide rounded-full cursor-pointer flex items-center gap-2 px-3"
+                          className="bg-primary hover:bg-primary-hover text-white font-light tracking-wide rounded-full cursor-pointer flex items-center gap-2 px-3"
                         >
                           {copiedId === invitation.id ? (
                             <Check className="h-3 w-3" />
@@ -248,7 +248,7 @@ export default function AdminInvitationsTable({
                             setEditingId(invitation.id);
                             setEditLabel(invitation.label);
                           }}
-                          className="border-ocean-blue text-ocean-blue hover:bg-ocean-blue hover:text-white rounded-full cursor-pointer p-2"
+                          className="border-primary text-primary hover:bg-primary hover:text-white rounded-full cursor-pointer p-2"
                           title="Editar etiqueta"
                         >
                           <Edit className="h-3 w-3" />

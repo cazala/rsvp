@@ -77,12 +77,12 @@ export default async function AdminPage() {
   const minors = rsvps.filter((r) => r.is_minor).length;
 
   return (
-    <div className="min-h-screen bg-light-blue p-8">
+    <div className="min-h-screen bg-primary-light p-8">
       <div className="max-w-7xl mx-auto">
         {/* header */}
         <div className="flex justify-between items-center mb-8">
           <div>
-            <h1 className="text-5xl font-handwritten text-ocean-blue mb-2">
+            <h1 className="text-5xl font-handwritten text-primary mb-2">
               Panel de Administración
             </h1>
             <p className="text-soft-gray">
@@ -95,7 +95,7 @@ export default async function AdminPage() {
               <Button
                 variant="outline"
                 type="submit"
-                className="flex items-center gap-2 bg-transparent border-ocean-blue text-ocean-blue hover:bg-ocean-blue hover:text-white cursor-pointer"
+                className="flex items-center gap-2 bg-transparent border-primary text-primary hover:bg-primary hover:text-white cursor-pointer"
               >
                 <LogOut className="h-5 w-5" /> Salir
               </Button>
@@ -124,10 +124,10 @@ export default async function AdminPage() {
             <Card key={label}>
               <CardHeader className="flex items-center justify-between pb-2">
                 <CardTitle className="text-sm font-medium">{label}</CardTitle>
-                <Icon className="h-6 w-6 text-ocean-blue" />
+                <Icon className="h-6 w-6 text-primary" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-ocean-blue">
+                <div className="text-2xl font-bold text-primary">
                   {value}
                 </div>
               </CardContent>

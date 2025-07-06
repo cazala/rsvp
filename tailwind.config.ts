@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: "class",
@@ -26,7 +26,7 @@ const config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#3498db",
+          DEFAULT: "rgb(var(--primary-color))",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
@@ -53,11 +53,8 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Custom blue celebration colors
-        "ocean-blue": "#3498db",
-        "sky-blue": "#5dade2",
+        // Custom colors using CSS variables
         "navy-blue": "#2c3e50",
-        "light-blue": "#f0f8ff",
         "soft-gray": "#5a5a5a",
       },
       borderRadius: {
@@ -85,6 +82,6 @@ const config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config
+} satisfies Config;
 
-export default config
+export default config;

@@ -31,7 +31,7 @@ export default function CustomTabs({ tabs, defaultTab }: CustomTabsProps) {
                 px-4 py-3 text-lg font-bold border-b-2 transition-all cursor-pointer
                 ${
                   activeTab === tab.id
-                    ? "text-black border-ocean-blue"
+                    ? "text-black border-primary"
                     : "text-soft-gray border-transparent hover:text-gray-700"
                 }
               `}

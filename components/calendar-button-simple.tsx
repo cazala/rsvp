@@ -34,7 +34,7 @@ export default function CalendarButtonSimple({
     <div className="flex justify-center">
       <Button
         onClick={handleGoogleCalendar}
-        className="border-2 border-ocean-blue text-ocean-blue text-lg py-6 px-8 hover:bg-ocean-blue hover:text-white bg-transparent font-light tracking-wide rounded-full"
+        className="border-2 border-primary text-primary text-lg py-6 px-8 hover:bg-primary hover:text-white bg-transparent font-light tracking-wide rounded-full"
         type="button"
         style={{
           cursor: "pointer",

@@ -12,7 +12,7 @@ export function BackgroundIllustrations({
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 239.88 421.29"
           fill="currentColor"
-          className="text-ocean-blue"
+          className="text-primary"
           style={{
             width: "100%",
             height: "100%",
@@ -56,7 +56,7 @@ export function BackgroundIllustrations({
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 301.96 507.01"
           fill="currentColor"
-          className="text-ocean-blue"
+          className="text-primary"
           style={{
             width: "100%",
             height: "100%",
@@ -84,7 +84,7 @@ export function BackgroundIllustrations({
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 266.58 483.9"
           fill="currentColor"
-          className="text-ocean-blue"
+          className="text-primary"
           style={{
             width: "100%",
             height: "100%",
@@ -122,7 +122,7 @@ export function BackgroundIllustrations({
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 307.99 453.24"
           fill="currentColor"
-          className="text-ocean-blue"
+          className="text-primary"
           style={{
             width: "100%",
             height: "100%",
@@ -175,7 +175,7 @@ export function BackgroundIllustrations({
           viewBox="0 0 202.000000 112.000000"
           preserveAspectRatio="xMidYMid meet"
           fill="currentColor"
-          className="text-ocean-blue"
+          className="text-primary"
           style={{
             width: "100%",
             height: "100%",
@@ -304,7 +304,7 @@ export function BackgroundIllustrations({
           viewBox="0 0 1330.000000 986.000000"
           preserveAspectRatio="xMidYMid meet"
           fill="currentColor"
-          className="text-ocean-blue"
+          className="text-primary"
           style={{
             width: "100%",
             height: "100%",

@@ -11,7 +11,7 @@ export default function Dresscode() {
           viewBox="0 0 1122.000000 1502.000000"
           preserveAspectRatio="xMidYMid meet"
           fill="currentColor"
-          className="text-ocean-blue"
+          className="text-primary"
           style={{
             width: "100%",
             height: "100%",
@@ -680,7 +680,7 @@ c16 -30 11 -168 -9 -251 -30 -129 -37 -127 -50 12 -13 134 -8 212 17 241 19
           viewBox="0 0 1996.000000 800.000000"
           preserveAspectRatio="xMidYMid meet"
           fill="currentColor"
-          className="text-ocean-blue"
+          className="text-primary"
           style={{
             width: "100%",
             height: "100%",
@@ -907,11 +907,11 @@ l-6 24 33 -17 c28 -14 40 -15 71 -6 36 11 40 10 86 -25 59 -45 119 -73 156
           </g>
         </svg>
       </div>
-      <div className="bg-white/80 backdrop-blur-sm border-2 border-ocean-blue rounded-3xl p-8 md:p-12 max-w-lg w-full">
-        <p className="text-sm text-ocean-blue font-light tracking-[0.2em] uppercase mb-2">
+      <div className="bg-white/80 backdrop-blur-sm border-2 border-primary rounded-3xl p-8 md:p-12 max-w-lg w-full">
+        <p className="text-sm text-primary font-light tracking-[0.2em] uppercase mb-2">
           Dress Code
         </p>
-        <h2 className="text-3xl md:text-4xl font-handwritten text-ocean-blue mb-8">
+        <h2 className="text-3xl md:text-4xl font-handwritten text-primary mb-8">
           Elegante Sport
         </h2>
 
