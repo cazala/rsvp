@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Search, Plus, Copy, Edit, Trash2 } from "lucide-react";
+import { Search, Plus, Copy, Edit, Trash2, Check } from "lucide-react";
 import {
   createInvitationLink,
   updateInvitationLink,
@@ -33,6 +33,7 @@ export default function AdminInvitationsTable({
   const [newLabel, setNewLabel] = useState("");
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editLabel, setEditLabel] = useState("");
+  const [copiedId, setCopiedId] = useState<string | null>(null);
   const router = useRouter();
 
   const filteredInvitations = invitations.filter((invitation) =>
@@ -80,6 +81,8 @@ export default function AdminInvitationsTable({
   const copyToClipboard = (id: string) => {
     const url = `${window.location.origin}/?invite=${id}`;
     navigator.clipboard.writeText(url);
+    setCopiedId(id);
+    setTimeout(() => setCopiedId(null), 1000);
   };
 
   return (
@@ -223,16 +226,21 @@ export default function AdminInvitationsTable({
                       )}
                     </td>
                     <td className="p-2">
-                      <div className="flex items-center space-x-1">
+                      {/* All Actions - Only Visible on Hover */}
+                      <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center space-x-2">
                         <Button
                           size="sm"
-                          variant="outline"
                           onClick={() => copyToClipboard(invitation.id)}
-                          className="border-ocean-blue text-ocean-blue hover:bg-ocean-blue hover:text-white rounded-full cursor-pointer p-2"
-                          title="Copiar enlace"
+                          className="bg-ocean-blue hover:bg-sky-blue text-white font-light tracking-wide rounded-full cursor-pointer flex items-center gap-2 px-3"
                         >
-                          <Copy className="h-3 w-3" />
+                          {copiedId === invitation.id ? (
+                            <Check className="h-3 w-3" />
+                          ) : (
+                            <Copy className="h-3 w-3" />
+                          )}
+                          Copiar Link
                         </Button>
+
                         <Button
                           size="sm"
                           variant="outline"
