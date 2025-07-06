@@ -8,16 +8,24 @@ ALTER TABLE rsvp_responses ENABLE ROW LEVEL SECURITY;
 ALTER TABLE invitation_links ENABLE ROW LEVEL SECURITY;
 
 -- Create RLS policies for invitation_links (admin-only access)
--- Allow service role (admin) full access
+-- Drop existing policies if they exist, then recreate
+DROP POLICY IF EXISTS "Allow service role full access" ON invitation_links;
 CREATE POLICY "Allow service role full access" ON invitation_links
 FOR ALL TO service_role
 USING (true)
 WITH CHECK (true);
 
--- Allow authenticated users to read active invitation links (for validation)
+DROP POLICY IF EXISTS "Allow authenticated reads of active links" ON invitation_links;
 CREATE POLICY "Allow authenticated reads of active links" ON invitation_links
 FOR SELECT TO authenticated
 USING (is_active = true);
+
+-- Add service role access to rsvp_responses for admin operations
+DROP POLICY IF EXISTS "Allow service role full access" ON rsvp_responses;
+CREATE POLICY "Allow service role full access" ON rsvp_responses
+FOR ALL TO service_role
+USING (true)
+WITH CHECK (true);
 
 -- Verify RLS is now enabled on both tables
 SELECT 

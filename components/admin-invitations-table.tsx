@@ -125,7 +125,7 @@ export default function AdminInvitationsTable({
             onClick={() => setIsCreating(true)}
             className="bg-ocean-blue hover:bg-sky-blue text-white font-light tracking-wide rounded-full cursor-pointer"
           >
-            <Plus className="h-4 w-4 mr-2" />
+            <Plus className="h-4 w-4" />
             Crear
           </Button>
         </div>

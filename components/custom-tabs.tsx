@@ -1,22 +1,22 @@
-"use client"
+"use client";
 
-import { useState, ReactNode } from "react"
+import { useState, ReactNode } from "react";
 
 interface TabItem {
-  id: string
-  label: string
-  content: ReactNode
+  id: string;
+  label: string;
+  content: ReactNode;
 }
 
 interface CustomTabsProps {
-  tabs: TabItem[]
-  defaultTab?: string
+  tabs: TabItem[];
+  defaultTab?: string;
 }
 
 export default function CustomTabs({ tabs, defaultTab }: CustomTabsProps) {
-  const [activeTab, setActiveTab] = useState(defaultTab || tabs[0]?.id)
+  const [activeTab, setActiveTab] = useState(defaultTab || tabs[0]?.id);
 
-  const activeTabContent = tabs.find(tab => tab.id === activeTab)?.content
+  const activeTabContent = tabs.find((tab) => tab.id === activeTab)?.content;
 
   return (
     <div className="w-full">
@@ -28,10 +28,11 @@ export default function CustomTabs({ tabs, defaultTab }: CustomTabsProps) {
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={`
-                px-4 py-3 text-lg font-bold border-b-2 transition-all
-                ${activeTab === tab.id
-                  ? 'text-black border-ocean-blue'
-                  : 'text-soft-gray border-transparent hover:text-gray-700'
+                px-4 py-3 text-lg font-bold border-b-2 transition-all cursor-pointer
+                ${
+                  activeTab === tab.id
+                    ? "text-black border-ocean-blue"
+                    : "text-soft-gray border-transparent hover:text-gray-700"
                 }
               `}
             >
@@ -42,9 +43,7 @@ export default function CustomTabs({ tabs, defaultTab }: CustomTabsProps) {
       </div>
 
       {/* Tab Content */}
-      <div className="mt-6">
-        {activeTabContent}
-      </div>
+      <div className="mt-6">{activeTabContent}</div>
     </div>
-  )
+  );
 }

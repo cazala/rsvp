@@ -31,10 +31,15 @@ export async function submitRsvp(formData: FormData) {
       };
     }
 
-    // Prefer the service-role key (server only, never exposed)
-    const supabase = getSupabaseAdmin();
-
-    // Create a new supabase client for server-side operations
+    // Use anon key for public RSVP submissions (respects RLS policies)
+    const supabase = getSupabase();
+    
+    if (!supabase) {
+      return {
+        success: false,
+        message: "Error de configuración de la base de datos.",
+      };
+    }
     const { error } = await supabase
       .from("rsvp_responses")
       .insert({
@@ -76,25 +81,8 @@ export async function submitRsvp(formData: FormData) {
 
 export async function deleteRsvp(id: number) {
   try {
-    // Check if Supabase is properly configured
-    if (
-      !process.env.NEXT_PUBLIC_SUPABASE_URL ||
-      !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-    ) {
-      console.warn("Supabase not configured. Running in demo mode.");
-      return {
-        success: true,
-        message: "Modo demo: Confirmación eliminada.",
-      };
-    }
-
-    const supabase = getSupabase();
-    if (!supabase) {
-      return {
-        success: false,
-        message: "Error de configuración de la base de datos.",
-      };
-    }
+    // Use service role for admin delete operations (bypasses RLS)
+    const supabase = getSupabaseAdmin();
 
     const { error } = await supabase
       .from("rsvp_responses")
