@@ -46,7 +46,7 @@
 :root {
   --font-delius: "Delius";
   --radius: 0.625rem;
-  --primary-color: 52 152 219;
+  --primary-color: 24 123 145;
   --primary-hover: rgb(var(--primary-color) / 0.8);
   --primary-light: rgb(var(--primary-color) / 0.08);
   --background: oklch(1 0 0);
