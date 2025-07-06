@@ -16,9 +16,9 @@ USING (true)
 WITH CHECK (true);
 
 DROP POLICY IF EXISTS "Allow authenticated reads of active links" ON invitation_links;
-CREATE POLICY "Allow authenticated reads of active links" ON invitation_links
+CREATE POLICY "Allow authenticated reads" ON invitation_links
 FOR SELECT TO authenticated
-USING (is_active = true);
+USING (true);
 
 -- Add service role access to rsvp_responses for admin operations
 DROP POLICY IF EXISTS "Allow service role full access" ON rsvp_responses;

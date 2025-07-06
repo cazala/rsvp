@@ -30,7 +30,6 @@ type InvitationLink = {
   label: string;
   created_at: string;
   created_by: string | null;
-  is_active: boolean;
   rsvp_count: { count: number }[];
 };
 

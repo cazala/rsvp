@@ -5,21 +5,11 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import {
-  Search,
-  Plus,
-  Copy,
-  Edit,
-  Trash2,
-  ToggleLeft,
-  ToggleRight,
-} from "lucide-react";
+import { Search, Plus, Copy, Edit, Trash2 } from "lucide-react";
 import {
   createInvitationLink,
   updateInvitationLink,
   deleteInvitationLink,
-  toggleInvitationLinkStatus,
 } from "@/lib/invitation-actions";
 import { useRouter } from "next/navigation";
 
@@ -28,7 +18,6 @@ type InvitationLink = {
   label: string;
   created_at: string;
   created_by: string | null;
-  is_active: boolean;
   rsvp_count: { count: number }[];
 };
 
@@ -81,15 +70,6 @@ export default function AdminInvitationsTable({
       return;
 
     const result = await deleteInvitationLink(id);
-    if (result.success) {
-      router.refresh();
-    } else {
-      alert(result.message);
-    }
-  };
-
-  const handleToggleStatus = async (id: string) => {
-    const result = await toggleInvitationLinkStatus(id);
     if (result.success) {
       router.refresh();
     } else {
@@ -173,9 +153,8 @@ export default function AdminInvitationsTable({
               <thead>
                 <tr className="border-b">
                   {[
-                    "Etiqueta",
+                    "Invitación",
                     "ID",
-                    "Estado",
                     "Confirmaciones",
                     "Creado",
                     "Acciones",
@@ -236,21 +215,7 @@ export default function AdminInvitationsTable({
                       </code>
                     </td>
                     <td className="p-2">
-                      <Badge
-                        variant={invitation.is_active ? "default" : "secondary"}
-                        className={
-                          invitation.is_active
-                            ? "bg-green-100 text-green-800"
-                            : "bg-gray-100 text-gray-800"
-                        }
-                      >
-                        {invitation.is_active ? "Activo" : "Inactivo"}
-                      </Badge>
-                    </td>
-                    <td className="p-2">
-                      <span className="px-2 py-1 rounded-full text-xs bg-ocean-blue/10 text-ocean-blue">
-                        {invitation.rsvp_count?.[0]?.count || 0}
-                      </span>
+                      {invitation.rsvp_count?.[0]?.count || 0}
                     </td>
                     <td className="p-2">
                       {new Date(invitation.created_at).toLocaleDateString(
@@ -279,21 +244,6 @@ export default function AdminInvitationsTable({
                           title="Editar etiqueta"
                         >
                           <Edit className="h-3 w-3" />
-                        </Button>
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          onClick={() => handleToggleStatus(invitation.id)}
-                          className="border-ocean-blue text-ocean-blue hover:bg-ocean-blue hover:text-white rounded-full cursor-pointer p-2"
-                          title={
-                            invitation.is_active ? "Desactivar" : "Activar"
-                          }
-                        >
-                          {invitation.is_active ? (
-                            <ToggleRight className="h-3 w-3" />
-                          ) : (
-                            <ToggleLeft className="h-3 w-3" />
-                          )}
                         </Button>
                         <Button
                           size="sm"

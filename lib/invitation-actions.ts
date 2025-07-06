@@ -45,7 +45,6 @@ export async function createInvitationLink(label: string) {
             id,
             label: label.trim(),
             created_by: "admin", // Could be enhanced to track actual admin user
-            is_active: true,
           });
 
         if (error) {
@@ -195,9 +194,8 @@ export async function validateInvitationLink(id: string) {
     
     const { data, error } = await supabase
       .from("invitation_links")
-      .select("id, label, is_active")
+      .select("id, label")
       .eq("id", id)
-      .eq("is_active", true)
       .single();
 
     if (error || !data) {
@@ -214,48 +212,3 @@ export async function validateInvitationLink(id: string) {
   }
 }
 
-export async function toggleInvitationLinkStatus(id: string) {
-  try {
-    const supabase = getSupabaseAdmin();
-    
-    // Get current status
-    const { data: current } = await supabase
-      .from("invitation_links")
-      .select("is_active")
-      .eq("id", id)
-      .single();
-
-    if (!current) {
-      return {
-        success: false,
-        message: "Enlace no encontrado",
-      };
-    }
-
-    // Toggle status
-    const { error } = await supabase
-      .from("invitation_links")
-      .update({ is_active: !current.is_active })
-      .eq("id", id);
-
-    if (error) {
-      console.error("Error toggling link status:", error);
-      return {
-        success: false,
-        message: "Error al cambiar el estado del enlace",
-      };
-    }
-
-    revalidatePath("/admin");
-    return {
-      success: true,
-      message: `Enlace ${!current.is_active ? "activado" : "desactivado"} exitosamente`,
-    };
-  } catch (error) {
-    console.error("Error in toggleInvitationLinkStatus:", error);
-    return {
-      success: false,
-      message: "Error interno del servidor",
-    };
-  }
-}
