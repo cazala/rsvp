@@ -46,9 +46,11 @@
 :root {
   --font-delius: "Delius";
   --radius: 0.625rem;
-  --primary-color: 24 123 145;
-  --primary-hover: rgb(var(--primary-color) / 0.8);
-  --primary-light: rgb(var(--primary-color) / 0.08);
+  --primary-color: rgb(24 123 145);
+  --primary-hover: rgb(
+    from var(--primary-color) calc(r * 1.25) calc(g * 1.25) calc(b * 1.25)
+  );
+  --primary-light: rgb(from var(--primary-color) r g b / 0.08);
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -131,7 +133,11 @@
 
 .text-primary {
   --tw-text-opacity: 1;
-  color: rgb(var(--primary-color) / var(--tw-text-opacity, 1));
+  color: color-mix(
+    in srgb,
+    var(--primary-color) calc(var(--tw-text-opacity, 1) * 100%),
+    transparent
+  );
 }
 
 .text-soft-gray {
@@ -191,7 +197,11 @@
 
 .border-primary {
   --tw-border-opacity: 1;
-  border-color: rgb(var(--primary-color) / var(--tw-border-opacity, 1));
+  border-color: color-mix(
+    in srgb,
+    var(--primary-color) calc(var(--tw-border-opacity, 1) * 100%),
+    transparent
+  );
 }
 
 .border-gray-200 {
@@ -211,12 +221,20 @@
 
 .bg-primary {
   --tw-bg-opacity: 1;
-  background-color: rgb(var(--primary-color) / var(--tw-bg-opacity, 1));
+  background-color: color-mix(
+    in srgb,
+    var(--primary-color) calc(var(--tw-bg-opacity, 1) * 100%),
+    transparent
+  );
 }
 
 .bg-primary-hover {
   --tw-bg-opacity: 1;
-  background-color: var(--primary-hover);
+  background-color: color-mix(
+    in srgb,
+    var(--primary-hover) calc(var(--tw-bg-opacity, 1) * 100%),
+    transparent
+  );
 }
 
 .bg-gray-50 {
@@ -251,12 +269,20 @@
 
 .hover\:bg-primary:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(var(--primary-color) / var(--tw-bg-opacity, 1));
+  background-color: color-mix(
+    in srgb,
+    var(--primary-color) calc(var(--tw-bg-opacity, 1) * 100%),
+    transparent
+  );
 }
 
 .hover\:bg-primary-hover:hover {
   --tw-bg-opacity: 1;
-  background-color: var(--primary-hover);
+  background-color: color-mix(
+    in srgb,
+    var(--primary-hover) calc(var(--tw-bg-opacity, 1) * 100%),
+    transparent
+  );
 }
 
 .hover\:underline:hover {
@@ -313,12 +339,20 @@
 
 .focus-visible\:ring-primary:focus-visible {
   --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(var(--primary-color) / var(--tw-ring-opacity, 1));
+  --tw-ring-color: color-mix(
+    in srgb,
+    var(--primary-color) calc(var(--tw-ring-opacity, 1) * 100%),
+    transparent
+  );
 }
 
 .focus-visible\:border-primary:focus-visible {
   --tw-border-opacity: 1;
-  border-color: rgb(var(--primary-color) / var(--tw-border-opacity, 1));
+  border-color: color-mix(
+    in srgb,
+    var(--primary-color) calc(var(--tw-border-opacity, 1) * 100%),
+    transparent
+  );
 }
 
 .ring-offset-background {
@@ -326,28 +360,36 @@
 }
 
 .border-primary\/30 {
-  border-color: rgb(var(--primary-color) / 0.3);
+  border-color: color-mix(in srgb, var(--primary-color) 30%, transparent);
 }
 
 .data-\[state\=checked\]\:bg-primary[data-state="checked"] {
   --tw-bg-opacity: 1;
-  background-color: rgb(var(--primary-color) / var(--tw-bg-opacity, 1));
+  background-color: color-mix(
+    in srgb,
+    var(--primary-color) calc(var(--tw-bg-opacity, 1) * 100%),
+    transparent
+  );
 }
 
 .data-\[state\=checked\]\:border-primary[data-state="checked"] {
   --tw-border-opacity: 1;
-  border-color: rgb(var(--primary-color) / var(--tw-border-opacity, 1));
+  border-color: color-mix(
+    in srgb,
+    var(--primary-color) calc(var(--tw-border-opacity, 1) * 100%),
+    transparent
+  );
 }
 
 /* Override checkbox and radio button colors to use primary color */
 [data-slot="checkbox"][data-state="checked"] {
-  background-color: rgb(var(--primary-color)) !important;
-  border-color: rgb(var(--primary-color)) !important;
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
   color: white !important;
 }
 
 [data-slot="radio-group-item"] .fill-primary {
-  fill: rgb(var(--primary-color)) !important;
+  fill: var(--primary-color) !important;
 }
 
 /* Ensure hover states work properly for buttons */
