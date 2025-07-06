@@ -47,7 +47,8 @@
   --font-delius: "Delius";
   --radius: 0.625rem;
   --primary-color: 52 152 219;
-  --primary-hover: 93 173 226;
+  --primary-hover: rgb(var(--primary-color) / 0.8);
+  --primary-light: rgb(var(--primary-color) / 0.08);
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -205,7 +206,7 @@
 
 .bg-primary-light {
   --tw-bg-opacity: 1;
-  background-color: rgb(var(--primary-color) / 0.08);
+  background-color: var(--primary-light);
 }
 
 .bg-primary {
@@ -215,7 +216,7 @@
 
 .bg-primary-hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(var(--primary-hover) / var(--tw-bg-opacity, 1));
+  background-color: var(--primary-hover);
 }
 
 .bg-gray-50 {
@@ -255,7 +256,7 @@
 
 .hover\:bg-primary-hover:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(var(--primary-hover) / var(--tw-bg-opacity, 1));
+  background-color: var(--primary-hover);
 }
 
 .hover\:underline:hover {
