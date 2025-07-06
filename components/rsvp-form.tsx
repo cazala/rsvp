@@ -80,9 +80,6 @@ export default function RsvpForm({ validInvite }: RsvpFormProps) {
 
       <div className="max-w-md mx-auto bg-white/90 backdrop-blur-sm border-2 border-primary rounded-3xl p-8">
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Hidden input for invitation link */}
-          <input type="hidden" name="link_id" value={validInvite?.id || ""} />
-          
           <div className="space-y-2">
             <Label htmlFor="name" className="text-soft-gray font-light">
               Nombre Completo
@@ -111,6 +108,9 @@ export default function RsvpForm({ validInvite }: RsvpFormProps) {
               Soy menor de edad
             </Label>
           </div>
+
+          {/* Hidden input for invitation link */}
+          <input type="hidden" name="link_id" value={validInvite?.id || ""} />
 
           {!isMinor && (
             <>

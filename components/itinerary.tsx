@@ -102,7 +102,7 @@ export default function Itinerary() {
           </svg>
         </div>
         {/* Wine Cat */}
-        <div className="absolute left-0 top-0 -mt-30 opacity-25 w-64 h-64 md:w-98 md:h-98 md:-ml-[10vw] md:-mt-30 md:-ml-[30vw]">
+        <div className="absolute left-0 top-0 -mt-34 opacity-25 w-64 h-64 md:w-98 md:h-98 md:-ml-[10vw] md:-mt-30 md:-ml-[30vw]">
           <svg
             version="1.0"
             xmlns="http://www.w3.org/2000/svg"
