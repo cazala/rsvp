@@ -620,7 +620,7 @@ c-132 98 -323 265 -433 380 -122 127 -178 219 -187 308 -5 52 -3 59 30 108 20
 
       {/* Snuria & Swanka */}
       <div
-        className={`absolute opacity-25 w-98 h-98 bottom-40 right-1/2 -mr-54 md:w-128 md:h-128 md:bottom-48 md:right-0 md:-mr-16 ${
+        className={`absolute opacity-25 w-98 h-98 bottom-60 right-1/2 -mr-54 md:w-128 md:h-128 md:bottom-48 md:right-0 md:-mr-16 ${
           validInvite ? "visible" : "invisible"
         }`}
       >

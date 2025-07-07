@@ -355,10 +355,16 @@
   color: white !important;
 }
 
-/* Add cursor pointer to checkbox and radio buttons */
+/* Add cursor pointer to interactive elements */
 [data-slot="checkbox"],
-[data-slot="radio-group-item"] {
+[data-slot="radio-group-item"],
+[data-slot="button"]:not(:disabled) {
   cursor: pointer;
+}
+
+/* Force cursor pointer for elements with cursor-pointer class */
+.cursor-pointer {
+  cursor: pointer !important;
 }
 
 .bg-blue-100 {
