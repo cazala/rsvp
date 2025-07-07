@@ -19,7 +19,6 @@ type Rsvp = {
   id: number;
   created_at: string;
   name: string;
-  email: string | null;
   whatsapp: string | null;
   dietary_requirements: string | null;
   needs_transfer: boolean;

@@ -11,7 +11,6 @@ type Rsvp = {
   id: number;
   created_at: string;
   name: string;
-  email: string | null;
   whatsapp: string | null;
   dietary_requirements: string | null;
   needs_transfer: boolean;
@@ -63,7 +62,6 @@ export default function AdminRsvpTable({ rsvps }: AdminRsvpTableProps) {
                 <tr className="border-b">
                   {[
                     "Nombre",
-                    "Email",
                     "WhatsApp",
                     "Menor",
                     "Traslado",
@@ -87,11 +85,6 @@ export default function AdminRsvpTable({ rsvps }: AdminRsvpTableProps) {
                 {filteredRsvps.map((r) => (
                   <tr key={r.id} className="border-b hover:bg-gray-50 group">
                     <td className="p-2">{r.name}</td>
-                    <td className="p-2">
-                      {r.email ?? (
-                        <span className="italic text-gray-400">–</span>
-                      )}
-                    </td>
                     <td className="p-2">
                       {r.whatsapp ?? (
                         <span className="italic text-gray-400">–</span>

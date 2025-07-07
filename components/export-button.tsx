@@ -7,7 +7,6 @@ interface RsvpResponse {
   id: number;
   created_at: string;
   name: string;
-  email: string | null;
   whatsapp: string | null;
   dietary_requirements: string | null;
   needs_transfer: boolean;
@@ -29,7 +28,6 @@ export default function ExportButton({ rsvps }: ExportButtonProps) {
 
     const headers = [
       "Nombre",
-      "Email",
       "WhatsApp",
       "Menor de Edad",
       "Necesita Traslado",
@@ -44,7 +42,6 @@ export default function ExportButton({ rsvps }: ExportButtonProps) {
       ...rsvps.map((rsvp) =>
         [
           `"${rsvp.name}"`,
-          `"${rsvp.email || (rsvp.is_minor ? "Menor de edad" : "")}"`,
           `"${rsvp.whatsapp || (rsvp.is_minor ? "Menor de edad" : "")}"`,
           rsvp.is_minor ? "Sí" : "No",
           rsvp.needs_transfer ? "Sí" : "No",

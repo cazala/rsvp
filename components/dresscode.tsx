@@ -912,12 +912,13 @@ l-6 24 33 -17 c28 -14 40 -15 71 -6 36 11 40 10 86 -25 59 -45 119 -73 156
           Dress Code
         </p>
         <h2 className="text-3xl md:text-4xl font-handwritten text-primary mb-8">
-          Elegante Sport
+          Formal
         </h2>
 
         <p className="text-soft-gray font-light leading-relaxed text-md">
-          Vestimenta elegante pero cómoda. La recepcion es afuera sobre cesped
-          asi que ojo con los tacos.
+          Vestimenta formal pero cómoda. Podés venir en camisa sin saco, o en
+          vestido corto. Y si queres venir elegante, todo lo que quieras. Tener
+          en cuenta que la recepcion es afuera sobre cesped.
         </p>
       </div>
     </section>

@@ -6,7 +6,6 @@ import { revalidatePath } from "next/cache";
 export async function submitRsvp(formData: FormData) {
   try {
     const name = formData.get("name") as string;
-    const email = formData.get("email") as string;
     const whatsapp = formData.get("whatsapp") as string;
     const dietary = formData.get("dietary") as string;
     const transfer = formData.get("transfer") as string;
@@ -22,11 +21,11 @@ export async function submitRsvp(formData: FormData) {
       };
     }
 
-    // Email is required only for adults
-    if (!isMinor && !email) {
+    // WhatsApp is required only for adults
+    if (!isMinor && !whatsapp) {
       return {
         success: false,
-        message: "El email es requerido para adultos",
+        message: "El WhatsApp es requerido para adultos",
       };
     }
 
@@ -43,7 +42,6 @@ export async function submitRsvp(formData: FormData) {
       .from("rsvp_responses")
       .insert({
         name: name.trim(),
-        email: email?.trim().toLowerCase() || null,
         whatsapp: whatsapp?.trim() || null,
         dietary_requirements: dietary?.trim() || null,
         needs_transfer: transfer === "yes",

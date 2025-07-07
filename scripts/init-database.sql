@@ -28,7 +28,6 @@ CREATE TABLE IF NOT EXISTS rsvp_responses (
   id bigserial PRIMARY KEY,
   created_at timestamp with time zone DEFAULT now() NOT NULL,
   name text NOT NULL,
-  email text,
   whatsapp text,
   dietary_requirements text,
   needs_transfer boolean DEFAULT false NOT NULL,
