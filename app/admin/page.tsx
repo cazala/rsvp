@@ -1,4 +1,4 @@
-import { getSupabaseAdmin } from "@/lib/supabase-admin";
+import { getDatabaseAdmin } from "@/lib/database";
 import { checkAdminSession, logoutAdmin } from "@/lib/auth-actions";
 
 // Force dynamic rendering for admin pages (uses cookies for authentication)
@@ -13,6 +13,8 @@ import AdminRsvpTable from "@/components/admin-rsvp-table";
 import AdminInvitationsTable from "@/components/admin-invitations-table";
 import CustomTabs from "@/components/custom-tabs";
 
+// Temporarily removed RsvpRaw type
+
 type Rsvp = {
   id: number;
   created_at: string;
@@ -25,7 +27,7 @@ type Rsvp = {
   is_minor: boolean;
   comment: string | null;
   link_id: string | null;
-  invitation_label?: string;
+  invitation_label: string | null;
 };
 
 type InvitationLink = {
@@ -38,27 +40,24 @@ type InvitationLink = {
 
 /* -------------------- data layer -------------------- */
 async function fetchRsvps(): Promise<Rsvp[]> {
-  const supabase = getSupabaseAdmin();
-  const { data, error } = await supabase
+  const database = getDatabaseAdmin();
+  if (!database) {
+    console.error("[Admin] Database client not available");
+    return [];
+  }
+  
+  const { data, error } = await database
     .from("rsvp_responses")
-    .select(
-      `
-      *,
-      invitation_links(label)
-    `
-    )
+    .select("*")
     .order("created_at", { ascending: false });
 
   if (error) {
-    console.error("[Admin] Supabase error:", error);
+    console.error("[Admin] Database error:", error);
     return [];
   }
 
-  // Transform data to include invitation label
-  return (data ?? []).map((rsvp) => ({
-    ...rsvp,
-    invitation_label: rsvp.invitation_links?.label || null,
-  }));
+  // Temporary: No transformation needed for simple query
+  return (data as Rsvp[]) ?? [];
 }
 /* ---------------------------------------------------- */
 
@@ -73,11 +72,11 @@ export default async function AdminPage() {
   ]);
 
   const total = rsvps.length;
-  const transfers = rsvps.filter((r) => r.needs_transfer).length;
-  const returnEarly = rsvps.filter((r) => r.return_time === "temprano").length;
-  const returnLate = rsvps.filter((r) => r.return_time === "tarde").length;
-  const dietary = rsvps.filter((r) => r.dietary_requirements?.trim()).length;
-  const minors = rsvps.filter((r) => r.is_minor).length;
+  const transfers = rsvps.filter((r: Rsvp) => r.needs_transfer).length;
+  const returnEarly = rsvps.filter((r: Rsvp) => r.return_time === "temprano").length;
+  const returnLate = rsvps.filter((r: Rsvp) => r.return_time === "tarde").length;
+  const dietary = rsvps.filter((r: Rsvp) => r.dietary_requirements?.trim()).length;
+  const minors = rsvps.filter((r: Rsvp) => r.is_minor).length;
 
   return (
     <div className="min-h-screen bg-primary-light p-8">

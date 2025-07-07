@@ -19,7 +19,7 @@ type Rsvp = {
   is_minor: boolean;
   comment: string | null;
   link_id: string | null;
-  invitation_label?: string;
+  invitation_label: string | null;
 };
 
 interface AdminRsvpTableProps {

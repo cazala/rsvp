@@ -1,8 +1,7 @@
 "use server";
 
-import { getSupabase } from "./supabase";
+import { getDatabase, getDatabaseAdmin } from "./database";
 import { revalidatePath } from "next/cache";
-import { getSupabaseAdmin } from "./supabase-admin";
 
 export async function submitRsvp(formData: FormData) {
   try {
@@ -31,16 +30,16 @@ export async function submitRsvp(formData: FormData) {
       };
     }
 
-    // Use anon key for public RSVP submissions (respects RLS policies)
-    const supabase = getSupabase();
+    // Use public database client for RSVP submissions (respects RLS policies)
+    const database = getDatabase();
     
-    if (!supabase) {
+    if (!database) {
       return {
         success: false,
         message: "Error de configuración de la base de datos.",
       };
     }
-    const { error } = await supabase
+    const { error } = await database
       .from("rsvp_responses")
       .insert({
         name: name.trim(),
@@ -56,7 +55,7 @@ export async function submitRsvp(formData: FormData) {
       .select();
 
     if (error) {
-      console.error("Supabase error:", error);
+      console.error("Database error:", error);
       return {
         success: false,
         message:
@@ -81,16 +80,23 @@ export async function submitRsvp(formData: FormData) {
 
 export async function deleteRsvp(id: number) {
   try {
-    // Use service role for admin delete operations (bypasses RLS)
-    const supabase = getSupabaseAdmin();
+    // Use admin database client for delete operations (bypasses RLS)
+    const database = getDatabaseAdmin();
 
-    const { error } = await supabase
+    if (!database) {
+      return {
+        success: false,
+        message: "Error de configuración de la base de datos.",
+      };
+    }
+
+    const { error } = await database
       .from("rsvp_responses")
       .delete()
       .eq("id", id);
 
     if (error) {
-      console.error("Supabase delete error:", error);
+      console.error("Database delete error:", error);
       return {
         success: false,
         message: "Error al eliminar la confirmación.",
