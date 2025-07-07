@@ -21,9 +21,9 @@ export const metadata: Metadata = {
     siteName: "Juanca & Nuria - 08.11.2025",
     images: [
       {
-        url: "/thumbnail.png",
-        width: 1200,
-        height: 1200,
+        url: "/og-image.png",
+        width: 512,
+        height: 512,
         alt: "Juanca & Nuria - 08.11.2025",
       },
     ],
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
     title: "Juanca & Nuria - 08.11.2025",
     description:
       "Te invitamos a celebrar nuestro casamiento el 8 de Noviembre en Estancia Lupita, Del Viso.",
-    images: ["/thumbnail.png"],
+    images: ["/og-image.png"],
   },
-  metadataBase: new URL("https://rsvp-juanca-nuria.vercel.app/"),
+  metadataBase: new URL("https://juanca-nuria.vercel.app/"),
 };
 
 export default function RootLayout({
