@@ -4,6 +4,7 @@ import DateCountdown from "@/components/date-countdown";
 import Venue from "@/components/venue";
 import Itinerary from "@/components/itinerary";
 import Dresscode from "@/components/dresscode";
+import Gift from "@/components/gift";
 import RsvpForm from "@/components/rsvp-form";
 import Footer from "@/components/footer";
 import { BackgroundIllustrations } from "@/components/background-illustrations";
@@ -51,6 +52,7 @@ export default async function Home({ searchParams }: HomeProps) {
         <Venue />
         <Itinerary />
         <Dresscode />
+        <Gift />
         <RsvpForm inviteId={inviteId} validInvite={validInvite} />
         <Footer />
       </div>
