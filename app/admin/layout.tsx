@@ -1,29 +1,36 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Delius } from "next/font/google"
-import { ThemeProvider } from "@/components/theme-provider"
+import type React from "react";
+import type { Metadata } from "next";
+import { Delius } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Analytics } from "@vercel/analytics/next";
 
 const delius = Delius({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-delius",
-})
+});
 
 export const metadata: Metadata = {
   title: "Admin - Juanca & Nuria",
   description: "Panel de administración para la invitación de casamiento",
-}
+};
 
 export default function AdminLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <div className={`${delius.variable}`}>
-      <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
+      <Analytics />
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="light"
+        enableSystem={false}
+        disableTransitionOnChange
+      >
         {children}
       </ThemeProvider>
     </div>
-  )
+  );
 }
