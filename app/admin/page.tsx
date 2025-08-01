@@ -45,18 +45,42 @@ async function fetchRsvps(): Promise<Rsvp[]> {
     return [];
   }
   
-  const { data, error } = await database
+  // First, fetch all RSVP responses
+  const { data: rsvpData, error: rsvpError } = await database
     .from("rsvp_responses")
     .select("*")
     .order("created_at", { ascending: false });
 
-  if (error) {
-    console.error("[Admin] Database error:", error);
+  if (rsvpError) {
+    console.error("[Admin] RSVP Database error:", rsvpError);
     return [];
   }
 
-  // Temporary: No transformation needed for simple query
-  return (data as Rsvp[]) ?? [];
+  // Then, fetch all invitation links
+  const { data: invitationData, error: invitationError } = await database
+    .from("invitation_links")
+    .select("id, label");
+
+  if (invitationError) {
+    console.error("[Admin] Invitation Database error:", invitationError);
+    return [];
+  }
+
+  // Create a map of invitation links for quick lookup
+  const invitationMap = new Map<string, string>();
+  if (invitationData) {
+    (invitationData as Array<{ id: string; label: string }>).forEach((invitation) => {
+      invitationMap.set(invitation.id, invitation.label);
+    });
+  }
+
+  // Transform the data to include invitation_label
+  const transformedData = (rsvpData as Array<Omit<Rsvp, 'invitation_label'>>)?.map((response) => ({
+    ...response,
+    invitation_label: response.link_id ? invitationMap.get(response.link_id) || null : null
+  })) ?? [];
+
+  return transformedData as Rsvp[];
 }
 /* ---------------------------------------------------- */
 

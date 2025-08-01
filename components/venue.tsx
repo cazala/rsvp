@@ -729,9 +729,7 @@ c176 -39 309 -178 352 -370 25 -113 15 -207 -32 -301 -40 -79 -56 -93 -24 -20
         </div>
 
         <div className="space-y-4 text-center">
-          <h3 className="text-xl font-handwritten text-primary">
-            Ubicación
-          </h3>
+          <h3 className="text-xl font-handwritten text-primary">Ubicación</h3>
           <p className="text-[#6d5c50] font-light leading-relaxed max-w-2xl mx-auto mb-4">
             Estancia Lupita está ubicada en{" "}
             <b className="font-bold">Viamonte 2298, Del Viso</b>. Es a unos
@@ -740,14 +738,12 @@ c176 -39 309 -178 352 -370 25 -113 15 -207 -32 -301 -40 -79 -56 -93 -24 -20
 
           <h3 className="text-xl font-handwritten text-primary">Traslado</h3>
           <p className="text-[#6d5c50] font-light leading-relaxed max-w-2xl mx-auto mb-4">
-            Va a haber un traslado saliendo desde{" "}
+            Van a haber combis saliendo desde{" "}
             <b className="font-bold">Plaza Italia</b>, podes indicar en el
             formulario de confirmacion si querés usar el servicio.
           </p>
 
-          <h3 className="text-xl font-handwritten text-primary">
-            Voy en auto
-          </h3>
+          <h3 className="text-xl font-handwritten text-primary">Voy en auto</h3>
           <p className="text-[#6d5c50] font-light leading-relaxed max-w-2xl mx-auto">
             Si vas en auto, lo más directo es tomar{" "}
             <b className="font-bold">
