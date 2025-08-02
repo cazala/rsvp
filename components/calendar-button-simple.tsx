@@ -14,7 +14,7 @@ export default function CalendarButtonSimple({
   const eventDetails = {
     title: "Casamiento Nuria & Juanca",
     startDate: new Date(eventDate),
-    endDate: new Date(new Date(eventDate).getTime() + 6 * 60 * 60 * 1000),
+    endDate: new Date(new Date(eventDate).getTime() + 10 * 60 * 60 * 1000),
     description: "Te invitamos a celebrar nuestro casamiento!",
     location:
       "Estancia Lupita, Gral. Viamonte 2298, B1669 Del Viso, Provincia de Buenos Aires, Argentina",
