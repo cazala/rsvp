@@ -151,35 +151,140 @@ export default function AdminInvitationsTable({
               : "Aún no hay enlaces de invitación."}
           </p>
         ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b">
-                  {[
-                    "Invitación",
-                    "ID",
-                    "Confirmaciones",
-                    "Creado",
-                    "Acciones",
-                  ].map((h) => (
-                    <th
-                      key={h}
-                      className="p-2 text-left font-medium text-primary"
+          <>
+            {/* Desktop Table */}
+            <div className="hidden md:block overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b">
+                    {[
+                      "Invitación",
+                      "ID",
+                      "Confirmaciones",
+                      "Creado",
+                      "Acciones",
+                    ].map((h) => (
+                      <th
+                        key={h}
+                        className="p-2 text-left font-medium text-primary"
+                      >
+                        {h}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {filteredInvitations.map((invitation) => (
+                    <tr
+                      key={invitation.id}
+                      className="border-b hover:bg-gray-50 group"
                     >
-                      {h}
-                    </th>
+                      <td className="p-2">
+                        {editingId === invitation.id ? (
+                          <div className="flex items-center space-x-2">
+                            <Input
+                              value={editLabel}
+                              onChange={(e) => setEditLabel(e.target.value)}
+                              className="border-2 border-primary/30 focus-visible:ring-primary focus-visible:border-primary font-light rounded-xl"
+                              onKeyPress={(e) =>
+                                e.key === "Enter" &&
+                                handleUpdateLink(invitation.id)
+                              }
+                            />
+                            <Button
+                              size="sm"
+                              onClick={() => handleUpdateLink(invitation.id)}
+                              className="bg-primary hover:bg-primary-hover text-white font-light rounded-full cursor-pointer"
+                            >
+                              Guardar
+                            </Button>
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => {
+                                setEditingId(null);
+                                setEditLabel("");
+                              }}
+                              className="border-primary text-primary hover:bg-primary hover:text-white rounded-full cursor-pointer"
+                            >
+                              Cancelar
+                            </Button>
+                          </div>
+                        ) : (
+                          invitation.label
+                        )}
+                      </td>
+                      <td className="p-2">
+                        <code className="text-sm bg-gray-100 px-2 py-1 rounded">
+                          {invitation.id}
+                        </code>
+                      </td>
+                      <td className="p-2">
+                        {invitation.rsvp_count?.[0]?.count || 0}
+                      </td>
+                      <td className="p-2">
+                        {new Date(invitation.created_at).toLocaleDateString(
+                          "es-AR"
+                        )}
+                      </td>
+                      <td className="p-2">
+                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center space-x-2">
+                          <Button
+                            size="sm"
+                            onClick={() => copyToClipboard(invitation.id)}
+                            className="bg-primary hover:bg-primary-hover text-white font-light tracking-wide rounded-full cursor-pointer flex items-center gap-2 px-3"
+                          >
+                            {copiedId === invitation.id ? (
+                              <Check className="h-3 w-3" />
+                            ) : (
+                              <Copy className="h-3 w-3" />
+                            )}
+                            Copiar Link
+                          </Button>
+
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={() => {
+                              setEditingId(invitation.id);
+                              setEditLabel(invitation.label);
+                            }}
+                            className="border-primary text-primary hover:bg-primary hover:text-white rounded-full cursor-pointer p-2"
+                            title="Editar etiqueta"
+                          >
+                            <Edit className="h-3 w-3" />
+                          </Button>
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={() =>
+                              handleDeleteLink(invitation.id, invitation.label)
+                            }
+                            className="border-red-500 text-red-500 hover:bg-red-500 hover:text-white rounded-full cursor-pointer p-2"
+                            title="Eliminar enlace"
+                          >
+                            <Trash2 className="h-3 w-3" />
+                          </Button>
+                        </div>
+                      </td>
+                    </tr>
                   ))}
-                </tr>
-              </thead>
-              <tbody>
-                {filteredInvitations.map((invitation) => (
-                  <tr
-                    key={invitation.id}
-                    className="border-b hover:bg-gray-50 group"
-                  >
-                    <td className="p-2">
+                </tbody>
+              </table>
+            </div>
+
+            {/* Mobile Cards */}
+            <div className="md:hidden space-y-4">
+              {filteredInvitations.map((invitation) => (
+                <div
+                  key={invitation.id}
+                  className="border rounded-lg p-4 bg-white"
+                >
+                  <div className="space-y-3">
+                    <div>
+                      <div className="text-sm text-gray-500">Invitación</div>
                       {editingId === invitation.id ? (
-                        <div className="flex items-center space-x-2">
+                        <div className="mt-1 space-y-2">
                           <Input
                             value={editLabel}
                             onChange={(e) => setEditLabel(e.target.value)}
@@ -189,88 +294,100 @@ export default function AdminInvitationsTable({
                               handleUpdateLink(invitation.id)
                             }
                           />
-                          <Button
-                            size="sm"
-                            onClick={() => handleUpdateLink(invitation.id)}
-                            className="bg-primary hover:bg-primary-hover text-white font-light rounded-full cursor-pointer"
-                          >
-                            Guardar
-                          </Button>
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            onClick={() => {
-                              setEditingId(null);
-                              setEditLabel("");
-                            }}
-                            className="border-primary text-primary hover:bg-primary hover:text-white rounded-full cursor-pointer"
-                          >
-                            Cancelar
-                          </Button>
+                          <div className="flex gap-2">
+                            <Button
+                              size="sm"
+                              onClick={() => handleUpdateLink(invitation.id)}
+                              className="bg-primary hover:bg-primary-hover text-white font-light rounded-full cursor-pointer"
+                            >
+                              Guardar
+                            </Button>
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => {
+                                setEditingId(null);
+                                setEditLabel("");
+                              }}
+                              className="border-primary text-primary hover:bg-primary hover:text-white rounded-full cursor-pointer"
+                            >
+                              Cancelar
+                            </Button>
+                          </div>
                         </div>
                       ) : (
-                        invitation.label
+                        <div className="font-medium">{invitation.label}</div>
                       )}
-                    </td>
-                    <td className="p-2">
-                      <code className="text-sm bg-gray-100 px-2 py-1 rounded">
-                        {invitation.id}
-                      </code>
-                    </td>
-                    <td className="p-2">
-                      {invitation.rsvp_count?.[0]?.count || 0}
-                    </td>
-                    <td className="p-2">
-                      {new Date(invitation.created_at).toLocaleDateString(
-                        "es-AR"
-                      )}
-                    </td>
-                    <td className="p-2">
-                      {/* All Actions - Only Visible on Hover */}
-                      <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center space-x-2">
-                        <Button
-                          size="sm"
-                          onClick={() => copyToClipboard(invitation.id)}
-                          className="bg-primary hover:bg-primary-hover text-white font-light tracking-wide rounded-full cursor-pointer flex items-center gap-2 px-3"
-                        >
-                          {copiedId === invitation.id ? (
-                            <Check className="h-3 w-3" />
-                          ) : (
-                            <Copy className="h-3 w-3" />
-                          )}
-                          Copiar Link
-                        </Button>
+                    </div>
 
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          onClick={() => {
-                            setEditingId(invitation.id);
-                            setEditLabel(invitation.label);
-                          }}
-                          className="border-primary text-primary hover:bg-primary hover:text-white rounded-full cursor-pointer p-2"
-                          title="Editar etiqueta"
-                        >
-                          <Edit className="h-3 w-3" />
-                        </Button>
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          onClick={() =>
-                            handleDeleteLink(invitation.id, invitation.label)
-                          }
-                          className="border-red-500 text-red-500 hover:bg-red-500 hover:text-white rounded-full cursor-pointer p-2"
-                          title="Eliminar enlace"
-                        >
-                          <Trash2 className="h-3 w-3" />
-                        </Button>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <div className="text-sm text-gray-500">ID</div>
+                        <code className="text-sm bg-gray-100 px-2 py-1 rounded block">
+                          {invitation.id}
+                        </code>
                       </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                      <div>
+                        <div className="text-sm text-gray-500">Confirmaciones</div>
+                        <div className="font-medium">
+                          {invitation.rsvp_count?.[0]?.count || 0}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="text-sm text-gray-500">Creado</div>
+                      <div>
+                        {new Date(invitation.created_at).toLocaleDateString(
+                          "es-AR"
+                        )}
+                      </div>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2 pt-2 border-t">
+                      <Button
+                        size="sm"
+                        onClick={() => copyToClipboard(invitation.id)}
+                        className="bg-primary hover:bg-primary-hover text-white font-light tracking-wide rounded-full cursor-pointer flex items-center gap-2 px-3"
+                      >
+                        {copiedId === invitation.id ? (
+                          <Check className="h-3 w-3" />
+                        ) : (
+                          <Copy className="h-3 w-3" />
+                        )}
+                        Copiar Link
+                      </Button>
+
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => {
+                          setEditingId(invitation.id);
+                          setEditLabel(invitation.label);
+                        }}
+                        className="border-primary text-primary hover:bg-primary hover:text-white rounded-full cursor-pointer"
+                      >
+                        <Edit className="h-3 w-3 mr-1" />
+                        Editar
+                      </Button>
+
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() =>
+                          handleDeleteLink(invitation.id, invitation.label)
+                        }
+                        className="border-red-500 text-red-500 hover:bg-red-500 hover:text-white rounded-full cursor-pointer"
+                      >
+                        <Trash2 className="h-3 w-3 mr-1" />
+                        Eliminar
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
         )}
       </CardContent>
     </Card>

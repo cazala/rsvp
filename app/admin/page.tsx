@@ -102,34 +102,35 @@ export default async function AdminPage() {
   const minors = rsvps.filter((r: Rsvp) => r.is_minor).length;
 
   return (
-    <div className="min-h-screen bg-primary-light p-8">
+    <div className="min-h-screen bg-primary-light p-4 md:p-8">
       <div className="max-w-7xl mx-auto">
         {/* header */}
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6 md:mb-8">
           <div>
-            <h1 className="text-5xl font-handwritten text-primary mb-2">
+            <h1 className="text-3xl md:text-5xl font-handwritten text-primary mb-2">
               Panel de Administración
             </h1>
-            <p className="text-soft-gray">
+            <p className="text-soft-gray text-sm md:text-base">
               Confirmaciones para el casamiento de Juanca &amp; Nuria
             </p>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 md:gap-4">
             <ExportButton rsvps={rsvps} />
             <form action={logoutAdmin}>
               <Button
                 variant="outline"
                 type="submit"
-                className="flex items-center gap-2 bg-transparent border-primary text-primary hover:bg-primary hover:text-white cursor-pointer"
+                className="flex items-center gap-2 bg-transparent border-primary text-primary hover:bg-primary hover:text-white cursor-pointer text-sm md:text-base"
               >
-                <LogOut className="h-5 w-5" /> Salir
+                <LogOut className="h-4 w-4 md:h-5 md:w-5" /> 
+                <span className="hidden sm:inline">Salir</span>
               </Button>
             </form>
           </div>
         </div>
 
         {/* stats */}
-        <div className="grid grid-cols-1 md:grid-cols-6 gap-6 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6 mb-8">
           {[
             { label: "Total Confirmados", value: total, icon: Users },
             { label: "Necesitan Traslado", value: transfers, icon: Car },

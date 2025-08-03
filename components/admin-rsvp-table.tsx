@@ -56,64 +56,169 @@ export default function AdminRsvpTable({ rsvps }: AdminRsvpTableProps) {
               : "Aún no hay confirmaciones."}
           </p>
         ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b">
-                  {[
-                    "Nombre",
-                    "WhatsApp",
-                    "Menor",
-                    "Traslado",
-                    "Horario Vuelta",
-                    "Restricciones",
-                    "Comentario",
-                    "Invitación",
-                    "Fecha",
-                    "Acciones",
-                  ].map((h) => (
-                    <th
-                      key={h}
-                      className="p-2 text-left font-medium text-primary"
-                    >
-                      {h}
-                    </th>
+          <>
+            {/* Desktop Table */}
+            <div className="hidden lg:block overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b">
+                    {[
+                      "Nombre",
+                      "WhatsApp",
+                      "Menor",
+                      "Traslado",
+                      "Horario Vuelta",
+                      "Restricciones",
+                      "Comentario",
+                      "Invitación",
+                      "Fecha",
+                      "Acciones",
+                    ].map((h) => (
+                      <th
+                        key={h}
+                        className="p-2 text-left font-medium text-primary"
+                      >
+                        {h}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {filteredRsvps.map((r) => (
+                    <tr key={r.id} className="border-b hover:bg-gray-50 group">
+                      <td className="p-2">{r.name}</td>
+                      <td className="p-2">
+                        {r.whatsapp ?? (
+                          <span className="italic text-gray-400">–</span>
+                        )}
+                      </td>
+                      <td className="p-2">
+                        <span
+                          className={`px-2 py-1 rounded-full text-xs ${
+                            r.is_minor
+                              ? "bg-orange-100 text-orange-800"
+                              : "bg-gray-100 text-gray-800"
+                          }`}
+                        >
+                          {r.is_minor ? "Sí" : "No"}
+                        </span>
+                      </td>
+                      <td className="p-2">
+                        <span
+                          className={`px-2 py-1 rounded-full text-xs ${
+                            r.needs_transfer
+                              ? "bg-green-100 text-green-800"
+                              : "bg-gray-100 text-gray-800"
+                          }`}
+                        >
+                          {r.needs_transfer ? "Sí" : "No"}
+                        </span>
+                      </td>
+                      <td className="p-2">
+                        {r.return_time ? (
+                          <span
+                            className={`px-2 py-1 rounded-full text-xs ${
+                              r.return_time === "temprano"
+                                ? "bg-blue-100 text-blue-800"
+                                : "bg-purple-100 text-purple-800"
+                            }`}
+                          >
+                            {r.return_time === "temprano" ? "00:00" : "04:30"}
+                          </span>
+                        ) : (
+                          <span className="italic text-gray-400">–</span>
+                        )}
+                      </td>
+                      <td
+                        className="p-2 max-w-xs truncate"
+                        title={r.dietary_requirements ?? ""}
+                      >
+                        {r.dietary_requirements || "–"}
+                      </td>
+                      <td
+                        className="p-2 max-w-xs truncate"
+                        title={r.comment ?? ""}
+                      >
+                        {r.comment || "–"}
+                      </td>
+                      <td className="p-2">
+                        {r.invitation_label ? (
+                          <span className="px-2 py-1 rounded-full text-xs bg-gray-100 text-gray-800">
+                            {r.invitation_label}
+                          </span>
+                        ) : (
+                          <span className="italic text-gray-400">–</span>
+                        )}
+                      </td>
+                      <td className="p-2">
+                        {new Date(r.created_at).toLocaleDateString("es-AR")}
+                      </td>
+                      <td className="p-2">
+                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                          <DeleteRsvpButton id={r.id} name={r.name} />
+                        </div>
+                      </td>
+                    </tr>
                   ))}
-                </tr>
-              </thead>
-              <tbody>
-                {filteredRsvps.map((r) => (
-                  <tr key={r.id} className="border-b hover:bg-gray-50 group">
-                    <td className="p-2">{r.name}</td>
-                    <td className="p-2">
-                      {r.whatsapp ?? (
-                        <span className="italic text-gray-400">–</span>
-                      )}
-                    </td>
-                    <td className="p-2">
-                      <span
-                        className={`px-2 py-1 rounded-full text-xs ${
-                          r.is_minor
-                            ? "bg-orange-100 text-orange-800"
-                            : "bg-gray-100 text-gray-800"
-                        }`}
-                      >
-                        {r.is_minor ? "Sí" : "No"}
-                      </span>
-                    </td>
-                    <td className="p-2">
-                      <span
-                        className={`px-2 py-1 rounded-full text-xs ${
-                          r.needs_transfer
-                            ? "bg-green-100 text-green-800"
-                            : "bg-gray-100 text-gray-800"
-                        }`}
-                      >
-                        {r.needs_transfer ? "Sí" : "No"}
-                      </span>
-                    </td>
-                    <td className="p-2">
-                      {r.return_time ? (
+                </tbody>
+              </table>
+            </div>
+
+            {/* Mobile Cards */}
+            <div className="lg:hidden space-y-4">
+              {filteredRsvps.map((r) => (
+                <div
+                  key={r.id}
+                  className="border rounded-lg p-4 bg-white"
+                >
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <div className="font-semibold text-lg">{r.name}</div>
+                        <div className="text-sm text-gray-500">
+                          {new Date(r.created_at).toLocaleDateString("es-AR")}
+                        </div>
+                      </div>
+                      <DeleteRsvpButton id={r.id} name={r.name} />
+                    </div>
+
+                    {r.whatsapp && (
+                      <div>
+                        <div className="text-sm text-gray-500">WhatsApp</div>
+                        <div>{r.whatsapp}</div>
+                      </div>
+                    )}
+
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <div className="text-sm text-gray-500">Menor de edad</div>
+                        <span
+                          className={`px-2 py-1 rounded-full text-xs ${
+                            r.is_minor
+                              ? "bg-orange-100 text-orange-800"
+                              : "bg-gray-100 text-gray-800"
+                          }`}
+                        >
+                          {r.is_minor ? "Sí" : "No"}
+                        </span>
+                      </div>
+                      <div>
+                        <div className="text-sm text-gray-500">Necesita traslado</div>
+                        <span
+                          className={`px-2 py-1 rounded-full text-xs ${
+                            r.needs_transfer
+                              ? "bg-green-100 text-green-800"
+                              : "bg-gray-100 text-gray-800"
+                          }`}
+                        >
+                          {r.needs_transfer ? "Sí" : "No"}
+                        </span>
+                      </div>
+                    </div>
+
+                    {r.return_time && (
+                      <div>
+                        <div className="text-sm text-gray-500">Horario de vuelta</div>
                         <span
                           className={`px-2 py-1 rounded-full text-xs ${
                             r.return_time === "temprano"
@@ -123,42 +228,36 @@ export default function AdminRsvpTable({ rsvps }: AdminRsvpTableProps) {
                         >
                           {r.return_time === "temprano" ? "00:00" : "04:30"}
                         </span>
-                      ) : (
-                        <span className="italic text-gray-400">–</span>
-                      )}
-                    </td>
-                    <td
-                      className="p-2 max-w-xs truncate"
-                      title={r.dietary_requirements ?? ""}
-                    >
-                      {r.dietary_requirements || "–"}
-                    </td>
-                    <td
-                      className="p-2 max-w-xs truncate"
-                      title={r.comment ?? ""}
-                    >
-                      {r.comment || "–"}
-                    </td>
-                    <td className="p-2">
-                      {r.invitation_label ? (
+                      </div>
+                    )}
+
+                    {r.dietary_requirements && (
+                      <div>
+                        <div className="text-sm text-gray-500">Restricciones alimentarias</div>
+                        <div className="text-sm">{r.dietary_requirements}</div>
+                      </div>
+                    )}
+
+                    {r.comment && (
+                      <div>
+                        <div className="text-sm text-gray-500">Comentario</div>
+                        <div className="text-sm">{r.comment}</div>
+                      </div>
+                    )}
+
+                    {r.invitation_label && (
+                      <div>
+                        <div className="text-sm text-gray-500">Invitación</div>
                         <span className="px-2 py-1 rounded-full text-xs bg-gray-100 text-gray-800">
                           {r.invitation_label}
                         </span>
-                      ) : (
-                        <span className="italic text-gray-400">–</span>
-                      )}
-                    </td>
-                    <td className="p-2">
-                      {new Date(r.created_at).toLocaleDateString("es-AR")}
-                    </td>
-                    <td className="p-2">
-                      <DeleteRsvpButton id={r.id} name={r.name} />
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
         )}
       </CardContent>
     </Card>
