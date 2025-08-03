@@ -94,22 +94,42 @@ export async function getInvitationLinks() {
       return [];
     }
     
-    // Temporary: Use simple query to debug Neon provider
-    const { data, error } = await database
+    // Fetch invitation links
+    const { data: invitationData, error: invitationError } = await database
       .from("invitation_links")
       .select("*")
       .order("created_at", { ascending: false });
 
-    if (error) {
-      console.error("Error fetching invitation links:", error);
+    if (invitationError) {
+      console.error("Error fetching invitation links:", invitationError);
       return [];
     }
 
-    // Temporary: Add fake rsvp_count for compatibility
+    // Fetch RSVP responses to count confirmations per link
+    const { data: rsvpData, error: rsvpError } = await database
+      .from("rsvp_responses")
+      .select("link_id");
+
+    if (rsvpError) {
+      console.error("Error fetching RSVP data:", rsvpError);
+      return [];
+    }
+
+    // Count RSVPs per link_id
+    const rsvpCounts = new Map<string, number>();
+    if (rsvpData) {
+      (rsvpData as Array<{ link_id: string | null }>).forEach((rsvp) => {
+        if (rsvp.link_id) {
+          rsvpCounts.set(rsvp.link_id, (rsvpCounts.get(rsvp.link_id) || 0) + 1);
+        }
+      });
+    }
+
+    // Add real RSVP counts to invitation links
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return ((data as any[]) || []).map((link: any) => ({
+    return ((invitationData as any[]) || []).map((link: any) => ({
       ...link,
-      rsvp_count: [{ count: 0 }] // Fake count for now
+      rsvp_count: [{ count: rsvpCounts.get(link.id) || 0 }]
     }));
   } catch (error) {
     console.error("Error in getInvitationLinks:", error);
