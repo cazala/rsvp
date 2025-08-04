@@ -121,7 +121,7 @@ export default function AdminInvitationsTable({
                 value={newLabel}
                 onChange={(e) => setNewLabel(e.target.value)}
                 className="flex-1 border-2 border-primary/30 focus-visible:ring-primary focus-visible:border-primary font-light rounded-xl"
-                onKeyPress={(e) => e.key === "Enter" && handleCreateLink()}
+                onKeyDown={(e) => e.key === "Enter" && handleCreateLink()}
               />
               <Button
                 onClick={handleCreateLink}
@@ -186,7 +186,7 @@ export default function AdminInvitationsTable({
                               value={editLabel}
                               onChange={(e) => setEditLabel(e.target.value)}
                               className="border-2 border-primary/30 focus-visible:ring-primary focus-visible:border-primary font-light rounded-xl"
-                              onKeyPress={(e) =>
+                              onKeyDown={(e) =>
                                 e.key === "Enter" &&
                                 handleUpdateLink(invitation.id)
                               }
@@ -289,7 +289,7 @@ export default function AdminInvitationsTable({
                             value={editLabel}
                             onChange={(e) => setEditLabel(e.target.value)}
                             className="border-2 border-primary/30 focus-visible:ring-primary focus-visible:border-primary font-light rounded-xl"
-                            onKeyPress={(e) =>
+                            onKeyDown={(e) =>
                               e.key === "Enter" &&
                               handleUpdateLink(invitation.id)
                             }

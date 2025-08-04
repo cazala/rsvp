@@ -29,7 +29,8 @@ export default function AdminRsvpTable({ rsvps }: AdminRsvpTableProps) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const filteredRsvps = rsvps.filter((rsvp) =>
-    rsvp.name.toLowerCase().includes(searchTerm.toLowerCase())
+    rsvp.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    (rsvp.invitation_label && rsvp.invitation_label.toLowerCase().includes(searchTerm.toLowerCase()))
   );
 
   return (
@@ -41,7 +42,7 @@ export default function AdminRsvpTable({ rsvps }: AdminRsvpTableProps) {
           </Label>
           <Input
             id="search-rsvp"
-            placeholder="Buscar por nombre..."
+            placeholder="Buscar por nombre o invitación..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="max-w-sm border-2 border-primary/30 focus-visible:ring-primary focus-visible:border-primary font-light rounded-xl"
