@@ -4,6 +4,9 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import ConfirmacionesTable from "@/components/confirmaciones-table";
 
+// Force dynamic rendering to ensure fresh data on each request
+export const dynamic = 'force-dynamic';
+
 interface RsvpResponse {
   id: number;
   created_at: string;
