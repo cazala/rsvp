@@ -55,7 +55,7 @@ export default function DeleteRsvpButton({ id, name }: DeleteRsvpButtonProps) {
       size="sm"
       variant="ghost"
       onClick={() => setShowConfirm(true)}
-      className="h-8 w-8 p-0 text-red-500 hover:text-red-700 hover:bg-red-50 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"
+      className="h-8 w-8 p-0 text-red-500 hover:text-red-700 hover:bg-red-50 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity cursor-pointer"
       title={`Eliminar confirmación de ${name}`}
     >
       <Trash2 className="h-4 w-4" />

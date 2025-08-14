@@ -76,6 +76,78 @@ export async function submitRsvp(formData: FormData) {
   }
 }
 
+export async function updateRsvp(id: number, formData: FormData) {
+  try {
+    const name = formData.get("name") as string;
+    const whatsapp = formData.get("whatsapp") as string;
+    const dietary = formData.get("dietary") as string;
+    const transfer = formData.get("transfer") as string;
+    const returnTime = formData.get("return_time") as string;
+    const isMinor = formData.get("is_minor") === "on";
+    const comment = formData.get("comment") as string;
+
+    if (!name) {
+      return {
+        success: false,
+        message: "El nombre es requerido",
+      };
+    }
+
+    // WhatsApp is required only for adults
+    if (!isMinor && !whatsapp) {
+      return {
+        success: false,
+        message: "El WhatsApp es requerido para adultos",
+      };
+    }
+
+    // Use admin database client for update operations (bypasses RLS)
+    const database = getDatabaseAdmin();
+
+    if (!database) {
+      return {
+        success: false,
+        message: "Error de configuración de la base de datos.",
+      };
+    }
+
+    const { error } = await database
+      .from("rsvp_responses")
+      .update({
+        name: name.trim(),
+        whatsapp: whatsapp?.trim() || null,
+        dietary_requirements: dietary?.trim() || null,
+        needs_transfer: transfer === "yes",
+        return_time: transfer === "yes" ? returnTime : null,
+        is_minor: isMinor,
+        comment: comment?.trim() || null,
+      })
+      .eq("id", id);
+
+    if (error) {
+      console.error("Database update error:", error);
+      return {
+        success: false,
+        message: "Error al actualizar la confirmación.",
+      };
+    }
+
+    revalidatePath("/admin");
+    revalidatePath("/confirmaciones");
+
+    return {
+      success: true,
+      message: "Confirmación actualizada exitosamente.",
+    };
+  } catch (error) {
+    console.error("Update action error:", error);
+    return {
+      success: false,
+      message: "Error inesperado al actualizar.",
+    };
+  }
+}
+
 export async function deleteRsvp(id: number) {
   try {
     // Use admin database client for delete operations (bypasses RLS)

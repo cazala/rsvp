@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import DeleteRsvpButton from "@/components/delete-rsvp-button";
+import EditRsvpButton from "@/components/edit-rsvp-button";
 import { Search } from "lucide-react";
 
 type Rsvp = {
@@ -59,8 +60,8 @@ export default function AdminRsvpTable({ rsvps }: AdminRsvpTableProps) {
         ) : (
           <>
             {/* Desktop Table */}
-            <div className="hidden lg:block overflow-x-auto">
-              <table className="w-full">
+            <div className="hidden lg:block">
+              <table className="w-full table-fixed">
                 <thead>
                   <tr className="border-b">
                     {[
@@ -74,26 +75,61 @@ export default function AdminRsvpTable({ rsvps }: AdminRsvpTableProps) {
                       "Invitación",
                       "Fecha",
                       "Acciones",
-                    ].map((h) => (
-                      <th
-                        key={h}
-                        className="p-2 text-left font-medium text-primary"
-                      >
-                        {h}
-                      </th>
-                    ))}
+                    ].map((h) => {
+                      let widthClass = "";
+                      switch (h) {
+                        case "Nombre":
+                          widthClass = "w-[15%]";
+                          break;
+                        case "WhatsApp":
+                          widthClass = "w-[12%]";
+                          break;
+                        case "Menor":
+                          widthClass = "w-[8%]";
+                          break;
+                        case "Traslado":
+                          widthClass = "w-[8%]";
+                          break;
+                        case "Horario Vuelta":
+                          widthClass = "w-[10%]";
+                          break;
+                        case "Restricciones":
+                          widthClass = "w-[15%]";
+                          break;
+                        case "Comentario":
+                          widthClass = "w-[15%]";
+                          break;
+                        case "Invitación":
+                          widthClass = "w-[10%]";
+                          break;
+                        case "Fecha":
+                          widthClass = "w-[10%]";
+                          break;
+                        case "Acciones":
+                          widthClass = "w-[7%]";
+                          break;
+                      }
+                      return (
+                        <th
+                          key={h}
+                          className={`p-2 text-left font-medium text-primary ${widthClass}`}
+                        >
+                          {h}
+                        </th>
+                      );
+                    })}
                   </tr>
                 </thead>
                 <tbody>
                   {filteredRsvps.map((r) => (
                     <tr key={r.id} className="border-b hover:bg-gray-50 group">
-                      <td className="p-2">{r.name}</td>
-                      <td className="p-2">
+                      <td className="p-2 w-[15%]">{r.name}</td>
+                      <td className="p-2 w-[12%]">
                         {r.whatsapp ?? (
                           <span className="italic text-gray-400">–</span>
                         )}
                       </td>
-                      <td className="p-2">
+                      <td className="p-2 w-[8%]">
                         <span
                           className={`px-2 py-1 rounded-full text-xs ${
                             r.is_minor
@@ -104,7 +140,7 @@ export default function AdminRsvpTable({ rsvps }: AdminRsvpTableProps) {
                           {r.is_minor ? "Sí" : "No"}
                         </span>
                       </td>
-                      <td className="p-2">
+                      <td className="p-2 w-[8%]">
                         <span
                           className={`px-2 py-1 rounded-full text-xs ${
                             r.needs_transfer
@@ -115,7 +151,7 @@ export default function AdminRsvpTable({ rsvps }: AdminRsvpTableProps) {
                           {r.needs_transfer ? "Sí" : "No"}
                         </span>
                       </td>
-                      <td className="p-2">
+                      <td className="p-2 w-[10%]">
                         {r.return_time ? (
                           <span
                             className={`px-2 py-1 rounded-full text-xs ${
@@ -131,18 +167,18 @@ export default function AdminRsvpTable({ rsvps }: AdminRsvpTableProps) {
                         )}
                       </td>
                       <td
-                        className="p-2 max-w-xs truncate"
+                        className="p-2 w-[15%] truncate"
                         title={r.dietary_requirements ?? ""}
                       >
                         {r.dietary_requirements || "–"}
                       </td>
                       <td
-                        className="p-2 max-w-xs truncate"
+                        className="p-2 w-[15%] truncate"
                         title={r.comment ?? ""}
                       >
                         {r.comment || "–"}
                       </td>
-                      <td className="p-2">
+                      <td className="p-2 w-[10%]">
                         {r.invitation_label ? (
                           <span className="px-2 py-1 rounded-full text-xs bg-gray-100 text-gray-800">
                             {r.invitation_label}
@@ -151,11 +187,12 @@ export default function AdminRsvpTable({ rsvps }: AdminRsvpTableProps) {
                           <span className="italic text-gray-400">–</span>
                         )}
                       </td>
-                      <td className="p-2">
+                      <td className="p-2 w-[10%]">
                         {new Date(r.created_at).toLocaleDateString("es-AR")}
                       </td>
-                      <td className="p-2">
-                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                      <td className="p-2 w-[7%]">
+                        <div className="lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-200 flex space-x-1">
+                          <EditRsvpButton rsvp={r} />
                           <DeleteRsvpButton id={r.id} name={r.name} />
                         </div>
                       </td>
@@ -180,7 +217,10 @@ export default function AdminRsvpTable({ rsvps }: AdminRsvpTableProps) {
                           {new Date(r.created_at).toLocaleDateString("es-AR")}
                         </div>
                       </div>
-                      <DeleteRsvpButton id={r.id} name={r.name} />
+                      <div className="flex space-x-1">
+                        <EditRsvpButton rsvp={r} />
+                        <DeleteRsvpButton id={r.id} name={r.name} />
+                      </div>
                     </div>
 
                     {r.whatsapp && (
