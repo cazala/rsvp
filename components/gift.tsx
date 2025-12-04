@@ -909,14 +909,14 @@ l-6 24 33 -17 c28 -14 40 -15 71 -6 36 11 40 10 86 -25 59 -45 119 -73 156
       </div>
       <div className="text-center">
         <div className="max-w-md mx-auto bg-white/90 backdrop-blur-sm border-2 border-primary rounded-3xl p-8">
-          <h2 className="text-3xl md:text-4xl font-handwritten text-primary mb-8">
+          <h2 className="text-3xl md:text-2xl font-delius text-primary mb-8">
             ¿Querés hacernos un regalo?
           </h2>
           <div className="mb-6 flex items-center gap-2 flex-row justify-center">
             <p className="text-sm text-soft-gray font-medium uppercase tracking-wide">
               alias:
             </p>
-            <p className="text-xl font-bold text-primary">JUANCA.NURIA</p>
+            <p className="text-xl font-bold text-primary">REGALO.SAM.FEDE</p>
           </div>
 
           <p className="text-soft-gray font-light leading-relaxed">

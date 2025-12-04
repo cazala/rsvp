@@ -5,14 +5,13 @@ export default function Dresscode() {
         <p className="text-sm text-primary font-light tracking-[0.2em] uppercase mb-2">
           Dress Code
         </p>
-        <h2 className="text-3xl md:text-4xl font-handwritten text-primary mb-8">
+        <h2 className="text-3xl md:text-4xl font-delius text-primary mb-8">
           Formal
         </h2>
 
         <p className="text-soft-gray font-light leading-relaxed text-md">
           Vestimenta formal pero cómoda. Podés venir en camisa sin saco, o en
-          vestido corto. Y si queres venir elegante, todo lo que quieras. Tener
-          en cuenta que la recepcion es afuera sobre cesped.
+          vestido corto.
         </p>
       </div>
     </section>

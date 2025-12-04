@@ -44,6 +44,7 @@
 }
 
 :root {
+  --font-tangerine: "Tangerine";
   --font-delius: "Delius";
   --radius: 0.625rem;
   --primary-color: 24 123 145;
@@ -126,6 +127,10 @@
 }
 
 .font-handwritten {
+  font-family: var(--font-tangerine), cursive;
+}
+
+.font-delius {
   font-family: var(--font-delius), cursive;
 }
 

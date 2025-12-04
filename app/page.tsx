@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Hero from "@/components/hero";
 import DateCountdown from "@/components/date-countdown";
+import Ceremony from "@/components/ceremony";
 import Venue from "@/components/venue";
 import Itinerary from "@/components/itinerary";
 import Dresscode from "@/components/dresscode";
@@ -14,10 +15,10 @@ import { validateInvitationLink } from "@/lib/invitation-actions";
 const WEDDING_DATE =
   process.env.WEDDING_DATE ||
   process.env.NEXT_PUBLIC_WEDDING_DATE ||
-  "2025-11-08T16:00:00";
+  "2026-03-14T16:00:00";
 
 export const metadata: Metadata = {
-  title: "Juanca & Nuria - Invitación de Casamiento",
+  title: "Sam & Fede - Invitación de Casamiento",
   description: `Te invitamos a celebrar nuestro casamiento el ${new Date(
     WEDDING_DATE
   ).toLocaleDateString("es-AR")}`,
@@ -49,12 +50,13 @@ export default async function Home({ searchParams }: HomeProps) {
       <div className="relative z-10 max-w-4xl mx-auto px-6 py-12 space-y-20">
         <Hero />
         <DateCountdown date={WEDDING_DATE} />
+        <Ceremony />
         <Venue />
-        <Itinerary />
+        {/* <Itinerary /> */}
         <Dresscode />
         <Gift />
-        <RsvpForm inviteId={inviteId} validInvite={validInvite} />
-        <Footer />
+        <RsvpForm inviteId={inviteId} validInvite={validInvite || { id: "", label: "" }} />
+        {/* <Footer /> */}
       </div>
     </main>
   );

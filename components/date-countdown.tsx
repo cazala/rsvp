@@ -50,7 +50,7 @@ export default function DateCountdown({ date }: DateCountdownProps) {
           Guardá la fecha
         </p>
         <h2 className="text-2xl md:text-3xl font-light mb-8 text-soft-gray">
-          Sábado 8 de Noviembre
+          Sábado 14 de Marzo, 19:00
         </h2>
 
         <div className="grid grid-cols-4 gap-4 md:gap-6 mb-8">

@@ -1,8 +1,14 @@
 import type React from "react";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Delius } from "next/font/google";
+import { Delius, Tangerine } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+
+const tangerine = Tangerine({
+  subsets: ["latin"],
+  weight: "700",
+  variable: "--font-tangerine",
+});
 
 const delius = Delius({
   subsets: ["latin"],
@@ -11,20 +17,20 @@ const delius = Delius({
 });
 
 export const metadata: Metadata = {
-  title: "Juanca & Nuria - 08.11.2025",
+  title: "Sam & Fede - 14.03.2026",
   description:
-    "Te invitamos a celebrar nuestro casamiento el 8 de Noviembre en Estancia Lupita, Del Viso.",
+    "Te invitamos a celebrar nuestro casamiento el 14 de Marzo en Salón/Estancia, CABA.",
   openGraph: {
-    title: "Juanca & Nuria - 08.11.2025",
+    title: "Sam & Fede - 14.03.2026",
     description:
-      "Te invitamos a celebrar nuestro casamiento el 8 de Noviembre en Estancia Lupita, Del Viso.",
-    siteName: "Juanca & Nuria - 08.11.2025",
+      "Te invitamos a celebrar nuestro casamiento el 14 de Marzo en Salón/Estancia, CABA.",
+    siteName: "Sam & Fede - 14.03.2026",
     images: [
       {
         url: "/og-image.png",
         width: 512,
         height: 512,
-        alt: "Juanca & Nuria - 08.11.2025",
+        alt: "Sam & Fede - 14.03.2026",
       },
     ],
     locale: "es_AR",
@@ -32,12 +38,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Juanca & Nuria - 08.11.2025",
+    title: "Sam & Fede - 14.03.2026",
     description:
-      "Te invitamos a celebrar nuestro casamiento el 8 de Noviembre en Estancia Lupita, Del Viso.",
+      "Te invitamos a celebrar nuestro casamiento el 14 de Marzo en Salón/Estancia, CABA.",
     images: ["/og-image.png"],
   },
-  metadataBase: new URL("https://juanca-nuria.vercel.app/"),
+  metadataBase: new URL("https://sam-fede.vercel.app/"),
 };
 
 export default function RootLayout({
@@ -47,7 +53,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" suppressHydrationWarning>
-      <body className={`${delius.variable}`}>
+      <body className={`${tangerine.variable} ${delius.variable}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

@@ -34,7 +34,7 @@ export default function RsvpForm({ validInvite }: RsvpFormProps) {
   const [isExpired, setIsExpired] = useState(false);
 
   // Wedding date and deadline calculation
-  const WEDDING_DATE = "2025-11-08T16:00:00";
+  const WEDDING_DATE = "2026-03-14T16:00:00";
   const CUTOFF_DAYS = 30;
 
   useEffect(() => {
@@ -70,7 +70,7 @@ export default function RsvpForm({ validInvite }: RsvpFormProps) {
           <p className="text-sm text-primary font-light tracking-[0.2em] uppercase mb-2">
             RSVP
           </p>
-          <h2 className="text-3xl md:text-4xl font-handwritten text-primary mb-4">
+          <h2 className="text-3xl md:text-4xl font-delius text-primary mb-4">
             Confirmación
           </h2>
         </div>
@@ -109,7 +109,7 @@ export default function RsvpForm({ validInvite }: RsvpFormProps) {
     return (
       <section id="rsvp" className="py-16 relative">
         <div className="max-w-md mx-auto bg-white/90 backdrop-blur-sm border-2 border-primary rounded-3xl p-8 text-center">
-          <h2 className="text-3xl font-handwritten text-primary mb-4">
+          <h2 className="text-3xl font-delius text-primary mb-4">
             ¡Gracias!
           </h2>
           <p className="text-soft-gray font-light mb-6">{message}</p>
@@ -134,7 +134,7 @@ export default function RsvpForm({ validInvite }: RsvpFormProps) {
         <p className="text-sm text-primary font-light tracking-[0.2em] uppercase mb-2">
           RSVP
         </p>
-        <h2 className="text-3xl md:text-4xl font-handwritten text-primary mb-4">
+        <h2 className="text-3xl md:text-4xl font-delius text-primary mb-4">
           Confirmación
         </h2>
         <p className="text-soft-gray font-light">
@@ -240,7 +240,7 @@ export default function RsvpForm({ validInvite }: RsvpFormProps) {
             )}
           </div>
 
-          <div className="space-y-3">
+          {/* <div className="space-y-3">
             <Label className="text-soft-gray font-light">
               ¿Querés usar el servicio de combis?
             </Label>
@@ -276,9 +276,9 @@ export default function RsvpForm({ validInvite }: RsvpFormProps) {
                 </Label>
               </div>
             </RadioGroup>
-          </div>
+          </div> */}
 
-          {needsTransfer && (
+          {/* {needsTransfer && (
             <div className="space-y-3">
               <Label className="text-soft-gray font-light">
                 ¿Te quedás a la fiesta electrónica?
@@ -312,7 +312,7 @@ export default function RsvpForm({ validInvite }: RsvpFormProps) {
                 </div>
               </RadioGroup>
             </div>
-          )}
+          )} */}
 
           <div className="space-y-2">
             <Label htmlFor="comment" className="text-soft-gray font-light">

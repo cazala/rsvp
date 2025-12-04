@@ -3,22 +3,22 @@ export const WEDDING_CONFIG = {
   date:
     process.env.WEDDING_DATE ||
     process.env.NEXT_PUBLIC_WEDDING_DATE ||
-    "2025-11-08T16:00:00",
+    "2026-03-14T16:00:00",
 
   // Event details
-  title: "Casamiento Nuria & Juanca",
+  title: "Casamiento Sam & Fede",
   venue: {
-    name: "Estancia Lupita",
+    name: "Salón/Estancia",
     address:
-      "Gral. Viamonte 2298, B1669 Del Viso, Provincia de Buenos Aires, Argentina",
-    googleMapsUrl: "https://maps.app.goo.gl/wdKEnfEndLM1GVc89",
+      "Direccion 123, CABA",
+    googleMapsUrl: "https://maps.app.goo.gl/pzUYPNgXcw7WPZqf7",
     directionsUrl: "https://maps.app.goo.gl/r6qtgTfT874Kxta78",
   },
 
   // Couple names
   couple: {
-    name1: "Juanca",
-    name2: "Nuria",
+    name1: "Sam",
+    name2: "Fede",
   },
 } as const;
 
