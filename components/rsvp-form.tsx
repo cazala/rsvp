@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
   Select,
@@ -27,7 +26,6 @@ export default function RsvpForm({ validInvite }: RsvpFormProps) {
   const [message, setMessage] = useState("");
   const [isPending, startTransition] = useTransition();
   const [isMinor, setIsMinor] = useState(false);
-  const [needsTransfer, setNeedsTransfer] = useState(false);
   const [dietaryRestriction, setDietaryRestriction] = useState("");
   const [allergyText, setAllergyText] = useState("");
   const [daysLeft, setDaysLeft] = useState<number | null>(null);

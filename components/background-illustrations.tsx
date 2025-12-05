@@ -1,5 +1,4 @@
 export function BackgroundIllustrations({
-  validInvite,
 }: {
   validInvite?: boolean;
 }) {

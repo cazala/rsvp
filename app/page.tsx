@@ -3,11 +3,9 @@ import Hero from "@/components/hero";
 import DateCountdown from "@/components/date-countdown";
 import Ceremony from "@/components/ceremony";
 import Venue from "@/components/venue";
-import Itinerary from "@/components/itinerary";
 import Dresscode from "@/components/dresscode";
 import Gift from "@/components/gift";
 import RsvpForm from "@/components/rsvp-form";
-import Footer from "@/components/footer";
 import { BackgroundIllustrations } from "@/components/background-illustrations";
 import { validateInvitationLink } from "@/lib/invitation-actions";
 // TEMPORARY: Remove after client picks color
@@ -49,7 +47,7 @@ export default async function Home({ searchParams }: HomeProps) {
       <ColorPicker />
 
       {/* Background illustrations */}
-      <BackgroundIllustrations validInvite={!!validInvite} />
+      <BackgroundIllustrations />
 
       {/* Main content */}
       <div className="relative z-10 max-w-4xl mx-auto px-6 py-12 space-y-20">

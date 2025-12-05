@@ -1,7 +1,5 @@
 "use client";
 
-import { Navigation } from "lucide-react";
-
 export default function Ceremony() {
     return (
         <section className="py-16 relative">
