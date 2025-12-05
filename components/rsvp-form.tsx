@@ -357,7 +357,7 @@ export default function RsvpForm({ validInvite }: RsvpFormProps) {
         </form>
       </div>
 
-      <div className="absolute opacity-25 w-60 h-60 ml-15 -mt-55 md:ml-0 md:mt-0 md:right-0 md:-mr-40 md:top-90 md:w-80 md:h-80">
+      <div className="absolute opacity-25 left-1/2 top-0 right-auto w-60 h-60 -ml-30 -mt-38 md:ml-auto md:mt-0 md:right-0 md:-mr-40 md:top-90 md:w-80 md:h-80">
         <svg version="1.1" viewBox="0 0 500 500" fill="currentColor"
           className="text-primary"
           style={{
