@@ -47,7 +47,7 @@
   --font-tangerine: "Tangerine";
   --font-delius: "Delius";
   --radius: 0.625rem;
-  --primary-color: rgb(24 123 145);
+  --primary-color: rgb(84 24 145);
   --primary-hover: rgb(
     from var(--primary-color) calc(r * 1.25) calc(g * 1.25) calc(b * 1.25)
   );

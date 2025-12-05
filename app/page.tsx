@@ -10,6 +10,8 @@ import RsvpForm from "@/components/rsvp-form";
 import Footer from "@/components/footer";
 import { BackgroundIllustrations } from "@/components/background-illustrations";
 import { validateInvitationLink } from "@/lib/invitation-actions";
+// TEMPORARY: Remove after client picks color
+import { ColorPicker } from "@/components/color-picker";
 
 // Get the event date from environment variables, with a fallback
 const WEDDING_DATE =
@@ -43,6 +45,9 @@ export default async function Home({ searchParams }: HomeProps) {
 
   return (
     <main className="min-h-screen bg-primary-light relative overflow-hidden">
+      {/* TEMPORARY: Color picker for client - REMOVE AFTER FINAL COLOR IS CHOSEN */}
+      <ColorPicker />
+
       {/* Background illustrations */}
       <BackgroundIllustrations validInvite={!!validInvite} />
 
