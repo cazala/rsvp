@@ -198,19 +198,19 @@ c176 -39 309 -178 352 -370 25 -113 15 -207 -32 -301 -40 -79 -56 -93 -24 -20
             <div className="bg-white/80 backdrop-blur-sm border-2 border-primary rounded-3xl p-8 md:p-12">
                 <div className="text-center mb-10">
                     <p className="text-sm text-primary font-light tracking-[0.2em] uppercase mb-2">
-                        Ceremonia
+                        Parroquia
                     </p>
                     <h2 className="text-3xl md:text-4xl font-delius text-primary mb-4">
-                        Iglesia
+                    Nuestra Señora de las Mercedes
                     </h2>
                     <p className="text-lg text-soft-gray font-light mb-6">
-                        Direccion 123, CABA
+                        Echeverría 1371, CABA
                     </p>
                 </div>
 
                 <div className="aspect-video w-full mb-6 overflow-hidden rounded-2xl border-2 border-primary">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d210147.4350897118!2d-58.5156992!3d-34.6156548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca3b4ef90cbd%3A0xa0b3812e88e88e87!2sBuenos%20Aires!5e0!3m2!1sen!2sar!4v1751640774140!5m2!1sen!2sar"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.5!2d-58.445463!3d-34.556636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc9009b06825b%3A0xd6283aa4db95aef6!2sParroquia%20Nuestra%20Se%C3%B1ora%20de%20las%20Mercedes!5e0!3m2!1sen!2sar!4v1751640774140!5m2!1sen!2sar"
                         width="100%"
                         height="100%"
                         style={{ border: 0 }}
@@ -223,8 +223,7 @@ c176 -39 309 -178 352 -370 25 -113 15 -207 -32 -301 -40 -79 -56 -93 -24 -20
                 <div className="space-y-4 text-center">
                     {/* <h3 className="text-4xl font-handwritten text-primary">Ubicación</h3> */}
                     <p className="text-[#6d5c50] font-light leading-relaxed max-w-2xl mx-auto mb-4">
-                        La Iglesia esta ubicada en{" "}
-                        <b className="font-bold">Direccion 123, CABA</b>. La recepcion comienza a las <b className="font-bold">XX:XX</b>.
+                    Queremos compartir con ustedes nuestra unión. Los esperamos en la iglesia a las <b className="font-bold">16:00</b> hs para celebrar este momento tan especial.
                     </p>
                 </div>
             </div>

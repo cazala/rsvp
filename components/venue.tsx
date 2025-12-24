@@ -255,19 +255,19 @@ c176 -39 309 -178 352 -370 25 -113 15 -207 -32 -301 -40 -79 -56 -93 -24 -20
       <div className="bg-white/80 backdrop-blur-sm border-2 border-primary rounded-3xl p-8 md:p-12">
         <div className="text-center mb-10">
           <p className="text-sm text-primary font-light tracking-[0.2em] uppercase mb-2">
-            Venue
+            Fiesta
           </p>
           <h2 className="text-3xl md:text-4xl font-delius text-primary mb-4">
-            Salón / Estancia
+          Fatima Home
           </h2>
           <p className="text-lg text-soft-gray font-light mb-6">
-            Direccion 123, CABA
+          Del Aro 1840, Fatima, Provincia de Buenos Aires
           </p>
         </div>
 
         <div className="aspect-video w-full mb-6 overflow-hidden rounded-2xl border-2 border-primary">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d210147.4350897118!2d-58.5156992!3d-34.6156548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca3b4ef90cbd%3A0xa0b3812e88e88e87!2sBuenos%20Aires!5e0!3m2!1sen!2sar!4v1751640774140!5m2!1sen!2sar"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.5!2d-58.9960782!3d-34.4181619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bb7dbcc3646ea9%3A0x2e4f07190de761c1!2sFatima%20Home!5e0!3m2!1sen!2sar!4v1751640774140!5m2!1sen!2sar"
             width="100%"
             height="100%"
             style={{ border: 0 }}
@@ -280,9 +280,23 @@ c176 -39 309 -178 352 -370 25 -113 15 -207 -32 -301 -40 -79 -56 -93 -24 -20
         <div className="space-y-4 text-center">
           {/* <h3 className="text-4xl font-handwritten text-primary">Ubicación</h3> */}
           <p className="text-[#6d5c50] font-light leading-relaxed max-w-2xl mx-auto mb-4">
-            Salón/Estancia esta ubicada en{" "}
-            <b className="font-bold">Direccion 123, CABA</b>. La recepcion comienza a las <b className="font-bold">XX:XX</b>.
+            Fatima Home esta ubicada en{" "}
+            <b className="font-bold">Del Aro 1840, Fatima</b>. La recepcion comienza a las <b className="font-bold">18:00</b> hs.
           </p>
+          <br />
+          <h3 className="text-2xl font-delius text-primary">Traslado</h3>
+          <p className="text-[#6d5c50] font-light leading-relaxed max-w-2xl mx-auto mb-4">
+          <br />
+          Habrá combis saliendo una vez finalizada la ceremonia eclesiástica, si deseas usar el servicio por favor llenar el formulario de confirmación.
+
+          </p>
+          <br />
+          <h3 className="text-2xl font-delius text-primary">Voy en auto</h3> 
+          <p className="text-[#6d5c50] font-light leading-relaxed max-w-2xl mx-auto mb-4">
+          <br />
+          Si vas en auto, lo más directo es Autopista Illia/Cantilo → General Paz → Acceso Norte → Ruta 8 Ramal Pilar → Salida 61 hacia Fátima
+          </p>
+
         </div>
       </div>
     </section>

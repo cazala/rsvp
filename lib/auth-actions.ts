@@ -5,7 +5,7 @@ import { redirect } from "next/navigation"
 import { encrypt, decrypt } from "./crypto"
 
 // Get the admin password from environment variables
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "wedding2025"
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "wedding2026"
 
 // Session duration in seconds (24 hours)
 const SESSION_DURATION = 24 * 60 * 60

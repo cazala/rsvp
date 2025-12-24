@@ -47,7 +47,7 @@
   --font-tangerine: "Tangerine";
   --font-delius: "Delius";
   --radius: 0.625rem;
-  --primary-color: rgb(84 24 145);
+  --primary-color: rgb(132 24 145);
   --primary-hover: rgb(
     from var(--primary-color) calc(r * 1.25) calc(g * 1.25) calc(b * 1.25)
   );
@@ -147,7 +147,7 @@
 
 .text-soft-gray {
   --tw-text-opacity: 1;
-  color: #8f8f8f;
+  color: #707070;
 }
 
 .text-slate-500 {

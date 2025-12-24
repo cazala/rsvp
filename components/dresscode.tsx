@@ -52,16 +52,27 @@ export default function Dresscode() {
       </div>
       
       <div className="bg-white/80 backdrop-blur-sm border-2 border-primary rounded-3xl p-8 md:p-12 max-w-lg w-full">
-        <p className="text-sm text-primary font-light tracking-[0.2em] uppercase mb-2">
-          Dress Code
-        </p>
+        {/* <p className="text-sm text-primary font-light tracking-[0.2em] uppercase mb-2">
+          Código de vestimenta
+        </p> */}
         <h2 className="text-3xl md:text-4xl font-delius text-primary mb-8">
-          Formal
+          Código de vestimenta
         </h2>
 
         <p className="text-soft-gray font-light leading-relaxed text-md">
-          Vestimenta formal pero cómoda. Podés venir en camisa sin saco, o en
-          vestido corto.
+        <b className="font-bold">Hombres:</b> formal/semi-formal.
+        <br />
+        <b className="font-bold">Mujeres:</b> formal, priorizando tu comodidad.
+        </p>
+       <br />
+        <p className="text-soft-gray font-light leading-relaxed text-md"> 
+          Importante tener en cuenta que la recepción es sobre césped. 
+        </p>
+
+        <p className="text-soft-gray font-light leading-relaxed text-md">
+
+Nos reservamos el color blanco para la novia.
+
         </p>
       </div>
     </section>

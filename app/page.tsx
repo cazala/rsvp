@@ -6,6 +6,7 @@ import Venue from "@/components/venue";
 import Dresscode from "@/components/dresscode";
 import Gift from "@/components/gift";
 import RsvpForm from "@/components/rsvp-form";
+import Itinerary from "@/components/itinerary";
 import { BackgroundIllustrations } from "@/components/background-illustrations";
 import { validateInvitationLink } from "@/lib/invitation-actions";
 // TEMPORARY: Remove after client picks color
@@ -15,10 +16,10 @@ import { ColorPicker } from "@/components/color-picker";
 const WEDDING_DATE =
   process.env.WEDDING_DATE ||
   process.env.NEXT_PUBLIC_WEDDING_DATE ||
-  "2026-03-14T16:00:00";
+  "2026-03-14T18:00:00";
 
 export const metadata: Metadata = {
-  title: "Sam & Fede - Invitación de Casamiento",
+  title: "Sam & Fede - 14.03.2026 - Invitación de Casamiento",
   description: `Te invitamos a celebrar nuestro casamiento el ${new Date(
     WEDDING_DATE
   ).toLocaleDateString("es-AR")}`,
@@ -44,7 +45,7 @@ export default async function Home({ searchParams }: HomeProps) {
   return (
     <main className="min-h-screen bg-primary-light relative overflow-hidden">
       {/* TEMPORARY: Color picker for client - REMOVE AFTER FINAL COLOR IS CHOSEN */}
-      <ColorPicker />
+      {/* <ColorPicker /> */}
 
       {/* Background illustrations */}
       <BackgroundIllustrations />
@@ -55,10 +56,10 @@ export default async function Home({ searchParams }: HomeProps) {
         <DateCountdown date={WEDDING_DATE} />
         <Ceremony />
         <Venue />
-        {/* <Itinerary /> */}
+        <Itinerary />
         <Dresscode />
         <Gift />
-        <RsvpForm inviteId={inviteId} validInvite={validInvite || { id: "", label: "" }} />
+        <RsvpForm inviteId={inviteId} validInvite={validInvite} />
         {/* <Footer /> */}
       </div>
     </main>

@@ -751,17 +751,51 @@ c16 -30 11 -168 -9 -251 -30 -129 -37 -127 -50 12 -13 134 -8 212 17 241 19
           <h2 className="text-3xl md:text-2xl font-delius text-primary mb-8">
             ¿Querés hacernos un regalo?
           </h2>
-          <div className="mb-6 flex items-center gap-2 flex-row justify-center">
-            <p className="text-sm text-soft-gray font-medium uppercase tracking-wide">
-              alias:
-            </p>
-            <p className="text-xl font-bold text-primary">REGALO.SAM.FEDE</p>
+
+          <p className="text-soft-gray font-light leading-relaxed mb-8">
+            Si querés hacernos un regalo y/o contribuir con nuestra Luna de Miel, podés hacerlo a través de:
+          </p>
+
+          <div className="space-y-8">
+            {/* Argentina */}
+            <div>
+              <h3 className="text-2xl font-delius text-primary mb-4">Argentina</h3>
+              <div className="text-[#6d5c50] font-light leading-relaxed space-y-2">
+                <p>
+                  <span className="font-bold">Alias:</span> SAM.FEDE
+                </p>
+                <p>
+                  <span className="font-bold">CBU:</span> 0170016920000003578649
+                </p>
+                <p>
+                  <span className="font-bold">Cuenta:</span> Cuenta Corriente $ - Banco Francés
+                </p>
+                <p>
+                  <span className="font-bold">Número:</span> 16-35786/4
+                </p>
+              </div>
+            </div>
+
+            {/* Ecuador */}
+            <div>
+              <h3 className="text-2xl font-delius text-primary mb-4">Ecuador</h3>
+              <div className="text-[#6d5c50] font-light leading-relaxed space-y-2">
+                <p>
+                  <span className="font-bold">N° Cuenta:</span> 1052710807
+                </p>
+                <p>
+                  <span className="font-bold">CI:</span> 0926441692 - Banco del Pacífico
+                </p>
+                <p>
+                  <span className="font-bold">Titular:</span> Samantha Arechúa García
+                </p>
+                <p>
+                  <span className="font-bold">Cédula de Identidad:</span> 0926441692
+                </p>
+              </div>
+            </div>
           </div>
 
-          <p className="text-soft-gray font-light leading-relaxed">
-            Que estés es lo que más nos importa, pero si querés ayudarnos con la
-            luna de miel, te dejamos nuestro alias.
-          </p>
         </div>
       </div>
     </section>

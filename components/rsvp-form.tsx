@@ -15,6 +15,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { submitRsvp } from "@/lib/actions";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 interface RsvpFormProps {
   inviteId?: string;
@@ -30,9 +31,10 @@ export default function RsvpForm({ validInvite }: RsvpFormProps) {
   const [allergyText, setAllergyText] = useState("");
   const [daysLeft, setDaysLeft] = useState<number | null>(null);
   const [isExpired, setIsExpired] = useState(false);
+  const [needsTransfer, setNeedsTransfer] = useState(false);
 
   // Wedding date and deadline calculation
-  const WEDDING_DATE = "2026-03-14T16:00:00";
+  const WEDDING_DATE = "2026-03-14T18:00:00";
   const CUTOFF_DAYS = 30;
 
   useEffect(() => {
@@ -238,7 +240,7 @@ export default function RsvpForm({ validInvite }: RsvpFormProps) {
             )}
           </div>
 
-          {/* <div className="space-y-3">
+          <div className="space-y-3">
             <Label className="text-soft-gray font-light">
               ¿Querés usar el servicio de combis?
             </Label>
@@ -274,7 +276,7 @@ export default function RsvpForm({ validInvite }: RsvpFormProps) {
                 </Label>
               </div>
             </RadioGroup>
-          </div> */}
+          </div>
 
           {/* {needsTransfer && (
             <div className="space-y-3">
