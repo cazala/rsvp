@@ -3,7 +3,7 @@ export const WEDDING_CONFIG = {
   date:
     process.env.WEDDING_DATE ||
     process.env.NEXT_PUBLIC_WEDDING_DATE ||
-    "2026-03-14T16:00:00",
+    "2026-03-14T18:00:00",
 
   // Event details
   title: "Casamiento Sam & Fede",

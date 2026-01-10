@@ -107,11 +107,11 @@ export default async function AdminPage() {
         {/* header */}
         <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6 md:mb-8">
           <div>
-            <h1 className="text-3xl md:text-5xl font-handwritten text-primary mb-2">
+            <h1 className="text-3xl md:text-5xl font-delius text-primary mb-2">
               Panel de Administración
             </h1>
             <p className="text-soft-gray text-sm md:text-base">
-              Confirmaciones para el casamiento de Juanca &amp; Nuria
+              Confirmaciones para el casamiento de Fede &amp; Sam
             </p>
           </div>
           <div className="flex items-center gap-2 md:gap-4">
@@ -130,16 +130,16 @@ export default async function AdminPage() {
         </div>
 
         {/* stats */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 mb-8">
           {[
             { label: "Total Confirmados", value: total, icon: Users },
             { label: "Necesitan Traslado", value: transfers, icon: Car },
-            {
-              label: "Vuelta Temprano (00:00)",
-              value: returnEarly,
-              icon: Clock,
-            },
-            { label: "Vuelta Tarde (04:30)", value: returnLate, icon: Clock },
+            // {
+            //   label: "Vuelta Temprano (00:00)",
+            //   value: returnEarly,
+            //   icon: Clock,
+            // },
+            // { label: "Vuelta Tarde (04:30)", value: returnLate, icon: Clock },
             {
               label: "Restricciones Alimentarias",
               value: dietary,

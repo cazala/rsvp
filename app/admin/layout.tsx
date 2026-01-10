@@ -17,7 +17,7 @@ const delius = Delius({
 });
 
 export const metadata: Metadata = {
-  title: "Admin - Juanca & Nuria",
+  title: "Admin - Fede & Sam",
   description: "Panel de administración para la invitación de casamiento",
 };
 

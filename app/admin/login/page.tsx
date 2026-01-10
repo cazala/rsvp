@@ -50,7 +50,7 @@ export default function AdminLoginPage() {
     <div className="min-h-screen bg-primary-light flex items-center justify-center p-4">
       <Card className="w-full max-w-md">
         <CardHeader>
-          <CardTitle className="text-3xl font-handwritten text-primary">
+          <CardTitle className="text-3xl font-delius text-primary">
             Panel de Administración
           </CardTitle>
           <CardDescription className="text-soft-gray">

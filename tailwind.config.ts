@@ -57,7 +57,7 @@ const config = {
         },
         // Custom colors using CSS variables
         "navy-blue": "#2c3e50",
-        "soft-gray": "#5a5a5a",
+        "soft-gray": "#707070",
       },
       borderRadius: {
         lg: "var(--radius)",
